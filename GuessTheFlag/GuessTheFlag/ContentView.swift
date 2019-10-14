@@ -14,17 +14,25 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var questionCount = 0
+    @State private var score = 0
+    @State private var indexTapped = 0
     
     var body: some View {
         ZStack {
-            Color.black
+            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(spacing: 30 ) {
                 VStack {
+                    HStack {
+                        Spacer()
+                    }
                     Text("Tap the flag of")
                         .foregroundColor(.white)
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .fontWeight(.black)
                 }
                 ForEach(0 ..< 3) { number in
                     Button(action: {
@@ -33,20 +41,28 @@ struct ContentView: View {
                         Image(self.countries[number])
                             .renderingMode(.original)
                     }
+                    .clipShape(Capsule())
+                    .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+                    .shadow(color: .black, radius: 2)
                 }
+                Text("Your score is \(score) / \(questionCount)")
+                    .foregroundColor(.white)
                 Spacer()
             }
         }
         .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("Your score is ???"), dismissButton: .default(Text("Continue")) {
+            Alert(title: Text(scoreTitle), message: Text("That's the flag of \(countries[indexTapped])"), dismissButton: .default(Text("Continue")) {
                 self.askQuestion()
             })
         }
     }
     
     func flagTapped(_ number: Int) {
+        indexTapped = number
+        questionCount += 1
         if number == correctAnswer {
             scoreTitle = "Correct"
+            score += 1
         } else {
             scoreTitle = "Wrong"
         }
