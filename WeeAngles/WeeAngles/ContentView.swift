@@ -47,36 +47,46 @@ extension Angle {
 
 struct ContentView: View {
     @State private var textInput = ""
-//    @State private var inputAngle2 = Angle.degree
-//    @State private var outputAngle = Angle.radian
     @State private var indexInput = 0
     @State private var indexOutput = 1
     let angles: [Angle] = [.degree(value: 0), .radian(value: 0), .gradian]
     
     var body: some View {
-        NavigationView {
-            Form {
+        let indexInputShim = Binding (
+            get: { self.indexInput },
+            set: {
+                if $0 == self.indexOutput {
+                    self.indexOutput = self.indexInput
+                }
+                self.indexInput = $0
+        }
+        )
+        let indexOutputShim = Binding (
+            get: { self.indexOutput },
+            set: {
+                if $0 == self.indexInput {
+                    self.indexInput = self.indexOutput
+                }
+                self.indexOutput = $0
+        }
+        )
+        return NavigationView {
+            return Form {
                 Section(header: Text("Input")) {
                     TextField("0", text: $textInput)
                         .keyboardType(.decimalPad)
-                    Picker("Input Angle", selection: $indexInput) {
+                    Picker("Input Angle", selection: indexInputShim) {
                         ForEach(0 ..< angles.count) {
                             Text("\(self.angles[$0].description)")
                         }
-//                        ForEach(0 ..< filteredInputAngles.count) {
-//                            Text("\(self.filteredInputAngles[$0].description)")
-//                        }
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("Output")) {
-                    Picker("Output Angle", selection: $indexOutput) {
+                    Picker("Output Angle", selection: indexOutputShim) {
                         ForEach(0 ..< angles.count) {
                             Text("\(self.angles[$0].description)")
                         }
-//                        ForEach(0 ..< filteredOutputAngles.count) {
-//                            Text("\(self.filteredOutputAngles[$0].description)")
-//                        }
                     }.pickerStyle(SegmentedPickerStyle())
                     Text("\(inputAngle.convert(to: angles[self.indexOutput]), specifier: "%.2f")")
                         .font(.largeTitle)
@@ -84,14 +94,6 @@ struct ContentView: View {
             }.navigationBarTitle("WeeAngles")
         }
     }
-    
-//    private var filteredInputAngles: [Angle] {
-//        return angles.filter { $0 != angles[indexOutput] }
-//    }
-//
-//    private var filteredOutputAngles: [Angle] {
-//        return angles.filter { $0 != angles[indexInput] }
-//    }
 }
 
 extension ContentView {
