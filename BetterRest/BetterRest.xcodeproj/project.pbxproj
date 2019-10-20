@@ -13,6 +13,7 @@
 		7759C3BA235C75AD004746F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7759C3B9235C75AD004746F7 /* Assets.xcassets */; };
 		7759C3BD235C75AD004746F7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7759C3BC235C75AD004746F7 /* Preview Assets.xcassets */; };
 		7759C3C0235C75AD004746F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7759C3BE235C75AD004746F7 /* LaunchScreen.storyboard */; };
+		7759C3C8235C82F1004746F7 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7759C3C7235C82F1004746F7 /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7759C3BC235C75AD004746F7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7759C3BF235C75AD004746F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7759C3C1235C75AD004746F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7759C3C7235C82F1004746F7 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				7759C3B9235C75AD004746F7 /* Assets.xcassets */,
 				7759C3BE235C75AD004746F7 /* LaunchScreen.storyboard */,
 				7759C3C1235C75AD004746F7 /* Info.plist */,
+				7759C3C7235C82F1004746F7 /* SleepCalculator.mlmodel */,
 				7759C3BB235C75AD004746F7 /* Preview Content */,
 			);
 			path = BetterRest;
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7759C3B4235C75AD004746F7 /* AppDelegate.swift in Sources */,
+				7759C3C8235C82F1004746F7 /* SleepCalculator.mlmodel in Sources */,
 				7759C3B6235C75AD004746F7 /* SceneDelegate.swift in Sources */,
 				7759C3B8235C75AD004746F7 /* ContentView.swift in Sources */,
 			);
