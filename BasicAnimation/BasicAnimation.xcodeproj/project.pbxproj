@@ -15,6 +15,7 @@
 		77370802236452390018B414 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77370800236452390018B414 /* LaunchScreen.storyboard */; };
 		7737080A2364555D0018B414 /* ImplicitAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773708092364555D0018B414 /* ImplicitAnimation.swift */; };
 		7737080C2364581B0018B414 /* CustomisingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737080B2364581B0018B414 /* CustomisingAnimation.swift */; };
+		7737080E236459930018B414 /* AnimatingBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737080D236459930018B414 /* AnimatingBindings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		77370803236452390018B414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		773708092364555D0018B414 /* ImplicitAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplicitAnimation.swift; sourceTree = "<group>"; };
 		7737080B2364581B0018B414 /* CustomisingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomisingAnimation.swift; sourceTree = "<group>"; };
+		7737080D236459930018B414 /* AnimatingBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingBindings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				773707FD236452390018B414 /* Preview Content */,
 				773708092364555D0018B414 /* ImplicitAnimation.swift */,
 				7737080B2364581B0018B414 /* CustomisingAnimation.swift */,
+				7737080D236459930018B414 /* AnimatingBindings.swift */,
 			);
 			path = BasicAnimation;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			files = (
 				773707F6236452380018B414 /* AppDelegate.swift in Sources */,
 				7737080A2364555D0018B414 /* ImplicitAnimation.swift in Sources */,
+				7737080E236459930018B414 /* AnimatingBindings.swift in Sources */,
 				773707F8236452380018B414 /* SceneDelegate.swift in Sources */,
 				7737080C2364581B0018B414 /* CustomisingAnimation.swift in Sources */,
 				773707FA236452380018B414 /* ContentView.swift in Sources */,

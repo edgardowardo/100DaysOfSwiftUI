@@ -14,6 +14,7 @@ struct ContentView: View {
             List {
                 NavigationLink("Scale (Implicit)", destination: ImplicitAnimation())
                 NavigationLink("Pulsar (Customised)", destination: CustomisingAnimation())
+                NavigationLink("Animating Bindings", destination: AnimatingBindings())
             }
         .navigationBarTitle("Animation 101")
         }
