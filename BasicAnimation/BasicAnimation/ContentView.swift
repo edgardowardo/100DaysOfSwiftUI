@@ -10,7 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            List {
+                NavigationLink("Scale (Implicit)", destination: ImplicitAnimation())
+                NavigationLink("Pulsar (Customised)", destination: CustomisingAnimation())
+            }
+        .navigationBarTitle("Animation 101")
+        }
     }
 }
 

@@ -13,6 +13,8 @@
 		773707FC236452390018B414 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773707FB236452390018B414 /* Assets.xcassets */; };
 		773707FF236452390018B414 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773707FE236452390018B414 /* Preview Assets.xcassets */; };
 		77370802236452390018B414 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77370800236452390018B414 /* LaunchScreen.storyboard */; };
+		7737080A2364555D0018B414 /* ImplicitAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773708092364555D0018B414 /* ImplicitAnimation.swift */; };
+		7737080C2364581B0018B414 /* CustomisingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737080B2364581B0018B414 /* CustomisingAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		773707FE236452390018B414 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77370801236452390018B414 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77370803236452390018B414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		773708092364555D0018B414 /* ImplicitAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImplicitAnimation.swift; sourceTree = "<group>"; };
+		7737080B2364581B0018B414 /* CustomisingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomisingAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				77370800236452390018B414 /* LaunchScreen.storyboard */,
 				77370803236452390018B414 /* Info.plist */,
 				773707FD236452390018B414 /* Preview Content */,
+				773708092364555D0018B414 /* ImplicitAnimation.swift */,
+				7737080B2364581B0018B414 /* CustomisingAnimation.swift */,
 			);
 			path = BasicAnimation;
 			sourceTree = "<group>";
@@ -147,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				773707F6236452380018B414 /* AppDelegate.swift in Sources */,
+				7737080A2364555D0018B414 /* ImplicitAnimation.swift in Sources */,
 				773707F8236452380018B414 /* SceneDelegate.swift in Sources */,
+				7737080C2364581B0018B414 /* CustomisingAnimation.swift in Sources */,
 				773707FA236452380018B414 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
