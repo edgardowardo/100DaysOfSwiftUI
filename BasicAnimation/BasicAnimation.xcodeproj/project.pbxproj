@@ -17,6 +17,7 @@
 		7737080E236459930018B414 /* AnimatingBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737080D236459930018B414 /* AnimatingBindings.swift */; };
 		7737081023645D380018B414 /* Explicit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737080F23645D380018B414 /* Explicit.swift */; };
 		7737081223645DB50018B414 /* ImplicitAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737081123645DB50018B414 /* ImplicitAnimation.swift */; };
+		77370814236469D10018B414 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77370813236469D10018B414 /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7737080D236459930018B414 /* AnimatingBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatingBindings.swift; sourceTree = "<group>"; };
 		7737080F23645D380018B414 /* Explicit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explicit.swift; sourceTree = "<group>"; };
 		7737081123645DB50018B414 /* ImplicitAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImplicitAnimation.swift; sourceTree = "<group>"; };
+		77370813236469D10018B414 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				7737080B2364581B0018B414 /* CustomisingAnimation.swift */,
 				7737080D236459930018B414 /* AnimatingBindings.swift */,
 				7737080F23645D380018B414 /* Explicit.swift */,
+				77370813236469D10018B414 /* Stack.swift */,
 			);
 			path = BasicAnimation;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				7737080E236459930018B414 /* AnimatingBindings.swift in Sources */,
 				773707F8236452380018B414 /* SceneDelegate.swift in Sources */,
 				7737080C2364581B0018B414 /* CustomisingAnimation.swift in Sources */,
+				77370814236469D10018B414 /* Stack.swift in Sources */,
 				7737081223645DB50018B414 /* ImplicitAnimation.swift in Sources */,
 				7737081023645D380018B414 /* Explicit.swift in Sources */,
 				773707FA236452380018B414 /* ContentView.swift in Sources */,

@@ -16,6 +16,7 @@ struct ContentView: View {
                 NavigationLink("Pulsar (Customised)", destination: CustomisingAnimation())
                 NavigationLink("Custom (Bindings)", destination: AnimatingBindings())
                 NavigationLink("3D Effect (Explicit)", destination: Explicit())
+                NavigationLink("Animation stack", destination: Stack())
             }
         .navigationBarTitle("Animation 101")
         }
