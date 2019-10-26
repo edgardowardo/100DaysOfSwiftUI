@@ -27,7 +27,7 @@ struct Gesture: View {
                 }
         )
 //        .animation(.spring())
-        .navigationBarTitle("Drag the card")
+        .navigationBarTitle("Drag Card")
     }
 }
 

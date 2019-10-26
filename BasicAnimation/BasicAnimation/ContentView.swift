@@ -20,6 +20,8 @@ struct ContentView: View {
                 NavigationLink("Card (Gesture 1)", destination: Gesture())
                 NavigationLink("Letters (Gesture 2)", destination: Gesture2())
                 NavigationLink("Transition", destination: Transition())
+                NavigationLink("Transition Modifier", destination: TransitionModifier())
+
             }
         .navigationBarTitle("Animation 101")
         }

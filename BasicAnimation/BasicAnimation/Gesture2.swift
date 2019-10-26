@@ -32,5 +32,6 @@ struct Gesture2: View {
                       self.enabled.toggle()
                   }
           )
+        .navigationBarTitle("Drag Letters")
       }
 }

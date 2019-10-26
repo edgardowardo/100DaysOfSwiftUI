@@ -21,6 +21,7 @@
 		7737081623646AC60018B414 /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737081523646AC60018B414 /* Gesture.swift */; };
 		77DAF04E23646C1B0091D067 /* Gesture2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF04D23646C1B0091D067 /* Gesture2.swift */; };
 		77DAF05023646D3C0091D067 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF04F23646D3C0091D067 /* Transition.swift */; };
+		77DAF05223646E720091D067 /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF05123646E720091D067 /* TransitionModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7737081523646AC60018B414 /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
 		77DAF04D23646C1B0091D067 /* Gesture2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture2.swift; sourceTree = "<group>"; };
 		77DAF04F23646D3C0091D067 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		77DAF05123646E720091D067 /* TransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				7737081523646AC60018B414 /* Gesture.swift */,
 				77DAF04D23646C1B0091D067 /* Gesture2.swift */,
 				77DAF04F23646D3C0091D067 /* Transition.swift */,
+				77DAF05123646E720091D067 /* TransitionModifier.swift */,
 			);
 			path = BasicAnimation;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				773707F6236452380018B414 /* AppDelegate.swift in Sources */,
+				77DAF05223646E720091D067 /* TransitionModifier.swift in Sources */,
 				7737080E236459930018B414 /* AnimatingBindings.swift in Sources */,
 				77DAF04E23646C1B0091D067 /* Gesture2.swift in Sources */,
 				773707F8236452380018B414 /* SceneDelegate.swift in Sources */,
