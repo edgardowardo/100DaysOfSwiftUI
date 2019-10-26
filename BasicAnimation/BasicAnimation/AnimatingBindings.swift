@@ -14,8 +14,12 @@ struct AnimatingBindings: View {
 
     var body: some View {
         VStack {
-            Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10)
-
+//            Stepper("Scale amount", value: $animationAmount.animation(), in: 1...10)
+            Stepper("Scale amount", value: $animationAmount.animation(
+                Animation.easeInOut(duration: 1)
+                    .repeatCount(3, autoreverses: true)
+            ), in: 1...10)
+            
             Spacer()
 
             Button("Tap Me") {
@@ -27,6 +31,6 @@ struct AnimatingBindings: View {
             .clipShape(Circle())
             .scaleEffect(animationAmount)
         }
-    .navigationBarTitle("Bindings")
+    .navigationBarTitle("Custom bindings")
     }
 }
