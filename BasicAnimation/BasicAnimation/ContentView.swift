@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Scale (Implicit)", destination: ImplicitAnimation())
+                NavigationLink("Scale & Blur (Implicit)", destination: Implicit())
                 NavigationLink("Pulsar (Customised)", destination: CustomisingAnimation())
                 NavigationLink("Custom (Bindings)", destination: AnimatingBindings())
                 NavigationLink("3D Effect (Explicit)", destination: Explicit())

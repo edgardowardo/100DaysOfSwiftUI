@@ -1,5 +1,5 @@
 //
-//  ImplicitAnimation.swift
+//  Implicit.swift
 //  BasicAnimation
 //
 //  Created by EDGARDO AGNO on 26/10/2019.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ImplicitAnimation: View {
+struct Implicit: View {
     
     @State private var animationAmount: CGFloat = 1
     
@@ -23,6 +23,6 @@ struct ImplicitAnimation: View {
         .scaleEffect(animationAmount)
         .blur(radius: (animationAmount - 1) * 3)
         .animation(.default)
-        .navigationBarTitle("Scale")
+        .navigationBarTitle("Scale & Blur")
     }
 }
