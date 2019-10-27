@@ -45,6 +45,7 @@ struct ContentView: View {
                     }) {
                         Image(self.countries[number])
                             .renderingMode(.original)
+                            .opacity(self.flagOpacity(for: number))
                     }
                     .clipShape(Capsule())
                     .overlay(Capsule().stroke(Color.black, lineWidth: 1))
