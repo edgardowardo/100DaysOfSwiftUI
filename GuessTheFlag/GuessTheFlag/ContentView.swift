@@ -84,6 +84,12 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
         animate.toggle()
     }
+    
+    func flagOpacity(for index: Int) -> Double {
+        guard animate
+            else { return 1 }
+        return index == correctAnswer ? 1 : 0.25
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
