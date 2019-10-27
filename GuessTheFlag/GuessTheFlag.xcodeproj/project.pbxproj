@@ -13,6 +13,9 @@
 		7769C3F12354A0280057555E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7769C3F02354A0280057555E /* Assets.xcassets */; };
 		7769C3F42354A0280057555E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7769C3F32354A0280057555E /* Preview Assets.xcassets */; };
 		7769C3F72354A0280057555E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7769C3F52354A0280057555E /* LaunchScreen.storyboard */; };
+		77A2C101236646D700A8B8DE /* AnswerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A2C100236646D700A8B8DE /* AnswerResult.swift */; };
+		77DAF05423657CF90091D067 /* AnimatableGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF05323657CF90091D067 /* AnimatableGradient.swift */; };
+		77DAF0562365842F0091D067 /* UIColor+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DAF0552365842F0091D067 /* UIColor+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		7769C3F32354A0280057555E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7769C3F62354A0280057555E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7769C3F82354A0280057555E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77A2C100236646D700A8B8DE /* AnswerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerResult.swift; sourceTree = "<group>"; };
+		77DAF05323657CF90091D067 /* AnimatableGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableGradient.swift; sourceTree = "<group>"; };
+		77DAF0552365842F0091D067 /* UIColor+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				7769C3F52354A0280057555E /* LaunchScreen.storyboard */,
 				7769C3F82354A0280057555E /* Info.plist */,
 				7769C3F22354A0280057555E /* Preview Content */,
+				77DAF05323657CF90091D067 /* AnimatableGradient.swift */,
+				77DAF0552365842F0091D067 /* UIColor+extensions.swift */,
+				77A2C100236646D700A8B8DE /* AnswerResult.swift */,
 			);
 			path = GuessTheFlag;
 			sourceTree = "<group>";
@@ -148,7 +157,10 @@
 			files = (
 				7769C3EB2354A0280057555E /* AppDelegate.swift in Sources */,
 				7769C3ED2354A0280057555E /* SceneDelegate.swift in Sources */,
+				77DAF0562365842F0091D067 /* UIColor+extensions.swift in Sources */,
 				7769C3EF2354A0280057555E /* ContentView.swift in Sources */,
+				77A2C101236646D700A8B8DE /* AnswerResult.swift in Sources */,
+				77DAF05423657CF90091D067 /* AnimatableGradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

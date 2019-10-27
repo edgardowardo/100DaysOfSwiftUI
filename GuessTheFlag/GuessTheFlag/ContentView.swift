@@ -17,11 +17,14 @@ struct ContentView: View {
     @State private var questionCount = 0
     @State private var score = 0
     @State private var indexTapped = 0
-    
+    @State private var state = AnswerResult.none
+    @State private var animate = false
+
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+        return ZStack {
+            Color.clear.edgesIgnoringSafeArea(.all)
+                .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: animate ? 1 : 0 )))
+            
             VStack(spacing: 30 ) {
                 VStack {
                     HStack {
@@ -32,11 +35,13 @@ struct ContentView: View {
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
                         .font(.largeTitle)
-                        .fontWeight(.black)
+                        .fontWeight(.heavy)
                 }
                 ForEach(0 ..< 3) { number in
                     Button(action: {
-                        self.flagTapped(number)
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            self.flagTapped(number)
+                        }
                     }) {
                         Image(self.countries[number])
                             .renderingMode(.original)
@@ -52,7 +57,9 @@ struct ContentView: View {
         }
         .alert(isPresented: $showingScore) {
             Alert(title: Text(scoreTitle), message: Text("That's the flag of \(countries[indexTapped])"), dismissButton: .default(Text("Continue")) {
-                self.askQuestion()
+                withAnimation(.easeInOut(duration: 1.0)) {
+                    self.askQuestion()
+                }
             })
         }
     }
@@ -63,15 +70,19 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            state = .win
         } else {
             scoreTitle = "Wrong"
+            state = .lose
         }
+        animate.toggle()
         showingScore = true
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        animate.toggle()
     }
 }
 
