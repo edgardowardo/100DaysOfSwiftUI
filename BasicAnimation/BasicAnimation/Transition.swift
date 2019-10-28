@@ -28,7 +28,7 @@ struct Transition: View {
                     .transition(.asymmetric(insertion: .scale, removal: .opacity))
               }
           }
-          .navigationBarTitle("Transition")
+          .navigationBarTitle("Transition (Asymetric)")
       }
 }
 

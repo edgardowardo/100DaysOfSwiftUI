@@ -16,11 +16,11 @@ struct ContentView: View {
                 NavigationLink("Pulsar (Customised)", destination: CustomisingAnimation())
                 NavigationLink("Custom (Bindings)", destination: AnimatingBindings())
                 NavigationLink("3D Effect (Explicit)", destination: Explicit())
-                NavigationLink("Animation stack", destination: Stack())
+                NavigationLink("Animation (Stack)", destination: Stack())
                 NavigationLink("Card (Gesture 1)", destination: Gesture())
                 NavigationLink("Letters (Gesture 2)", destination: Gesture2())
-                NavigationLink("Transition", destination: Transition())
-                NavigationLink("Transition Modifier", destination: TransitionModifier())
+                NavigationLink("Transition (Asymetric)", destination: Transition())
+                NavigationLink("Transition (Modifier)", destination: TransitionModifier())
 
             }
         .navigationBarTitle("Animation 101")

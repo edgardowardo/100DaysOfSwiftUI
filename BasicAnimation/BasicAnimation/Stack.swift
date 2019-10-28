@@ -22,6 +22,6 @@ struct Stack: View {
         .foregroundColor(.white)
         .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
         .animation(.interpolatingSpring(stiffness: 10, damping: 1))
-        .navigationBarTitle("Animation stack")
+        .navigationBarTitle("Animation (Stack)")
     }
 }
