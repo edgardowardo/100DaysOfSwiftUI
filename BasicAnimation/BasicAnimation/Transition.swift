@@ -31,3 +31,9 @@ struct Transition: View {
           .navigationBarTitle("Transition")
       }
 }
+
+struct Transition_Previews: PreviewProvider {
+    static var previews: some View {
+        Transition()
+    }
+}

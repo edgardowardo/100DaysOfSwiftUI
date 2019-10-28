@@ -12,17 +12,16 @@ struct ContentView: View {
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
-    @State private var scoreTitle = ""
     @State private var questionCount = 0
     @State private var score = 0
     @State private var indexTapped = 0
     @State private var state = AnswerResult.none
-    @State private var animate = false
 
     var body: some View {
+        print("state=\(state)")
         return ZStack {
             Color.clear.edgesIgnoringSafeArea(.all)
-                .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: animate ? 1 : 0 )))
+                .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: state == .none ? 0 : 1 )))
             
             VStack(spacing: 30 ) {
                 VStack {
@@ -44,18 +43,18 @@ struct ContentView: View {
                     }) {
                         Image(self.countries[number])
                             .renderingMode(.original)
-                            .opacity(self.flagOpacity(for: number))
                     }
                     .clipShape(Rectangle())
                     .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
                     .shadow(color: .black, radius: 2)
+                    .opacity(self.flagOpacity(for: number))
                     .rotation3DEffect(.degrees(self.rotationAmount(for: number)), axis: (x: 0, y: 1, z: 0), anchor: .leading, anchorZ: 0, perspective: 0.5)
                 }
                 Text("Your score is \(score) / \(questionCount)")
                     .foregroundColor(.white)
                 Spacer()
-                if scoreTitle != "" {
-                    Text("\(scoreTitle)!, that's the flag of \(countries[indexTapped])")
+                if !state.scoreTitle.isEmpty {
+                    Text("\(state.scoreTitle)!, that's the flag of \(countries[indexTapped])")
                         .foregroundColor(.white)
                         .font(.largeTitle)
                         .fontWeight(.black)
@@ -71,36 +70,31 @@ struct ContentView: View {
         }
     }
     
-    func flagTapped(_ number: Int) {
-        indexTapped = number
+    func flagTapped(_ index: Int) {
+        indexTapped = index
         questionCount += 1
-        if number == correctAnswer {
-            scoreTitle = "Correct"
+        if index == correctAnswer {
             score += 1
             state = .win
         } else {
-            scoreTitle = "Wrong"
             state = .lose
         }
-        animate.toggle()
     }
     
     func askQuestion() {
-        scoreTitle = ""
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-        animate.toggle()
         state = .none
     }
     
     func flagOpacity(for index: Int) -> Double {
-        guard animate
+        guard state != .none
             else { return 1 }
         return index == correctAnswer ? 1 : 0.25
     }
     
     func rotationAmount(for index: Int) -> Double {
-        print("index=\(index) == correctAnswer=\(correctAnswer); state=\(state); animate=\(animate)")
+        print("index=\(index) == correctAnswer=\(correctAnswer); state=\(state)")
         switch state {
         case .none, .lose: return 0
         case .win: return index == correctAnswer ? 360 : 0

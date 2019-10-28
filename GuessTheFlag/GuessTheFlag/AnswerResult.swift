@@ -20,5 +20,13 @@ extension AnswerResult {
         case .win: return [.primaryBlack, .green]
         }
     }
+    
+    var scoreTitle: String {
+        switch self {
+        case .none: return ""
+        case .lose: return "Wrong"
+        case .win: return "Correct"
+        }
+    }
 }
 
