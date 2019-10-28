@@ -17,59 +17,58 @@ struct ContentView: View {
     @State private var indexTapped = 0
     @State private var state = AnswerResult.none
     @State private var isAnswered = false
+    @State private var isShowingFlags = false
 
     var body: some View {
-        print("state=\(state)")
         return ZStack {
             Color.clear.edgesIgnoringSafeArea(.all)
                 .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: isAnswered ? 1 : 0 )))
                 .animation(.easeInOut(duration: 1))
             
             VStack(spacing: 30 ) {
-                VStack {
-                    HStack {
-                        Spacer()
+
+                HeaderView(countryQuery: countries[correctAnswer], score: score, questionCount: questionCount)
+                
+                if isShowingFlags {
+                    ForEach(0 ..< 3) { number in
+                        Button(action: {
+                            self.flagTapped(number)
+                        }) {
+                            Image(self.countries[number])
+                                .renderingMode(.original)
+                        }
+                        .clipShape(Rectangle())
+                        .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
+                        .shadow(color: .black, radius: 2)
+                        .rotation3DEffect(.degrees(self.rotationAmount(for: number)), axis: (x: 0, y: 1, z: 0), anchor: .leading, anchorZ: 0, perspective: 0.5)
+                        .opacity(self.flagOpacity(for: number))
+                        .transition(.opacity)
+                        .animation(.default)
                     }
-                    Text("Tap the flag of")
-                        .foregroundColor(.white)
-                    Text(countries[correctAnswer])
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
                 }
-                .animation(nil)
-                ForEach(0 ..< 3) { number in
-                    Button(action: {
-                        self.flagTapped(number)
-                    }) {
-                        Image(self.countries[number])
-                            .renderingMode(.original)
-                    }
-                    .clipShape(Rectangle())
-                    .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
-                    .shadow(color: .black, radius: 2)
-                    .rotation3DEffect(.degrees(self.rotationAmount(for: number)), axis: (x: 0, y: 1, z: 0), anchor: .leading, anchorZ: 0, perspective: 0.5)
-                    .animation(self.isAnswered ? .default : nil)
-                    .opacity(self.flagOpacity(for: number))
-                    .animation(.default)
-                }
-                Text("Your score is \(score) / \(questionCount)")
-                    .foregroundColor(.white)
                 Spacer()
                 if isAnswered {
                     VStack {
                         Text("\(state.scoreTitle)!, that's the flag of \(countries[indexTapped])")
-                            .foregroundColor(.white)
                             .font(.largeTitle)
                             .fontWeight(.black)
                             .multilineTextAlignment(.center)
                             .padding()
                         Button("Continue") {
-                            self.askQuestion()
+                            self.isShowingFlags = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                self.askQuestion()
+                                self.isShowingFlags = true
+                            }
                         }
+                        .foregroundColor(.blue)
                     }
                     .animation(.default)
                 }
+            }
+            .foregroundColor(.white)
+            .onAppear {
+                self.isShowingFlags = true
             }
         }
     }
@@ -99,7 +98,6 @@ struct ContentView: View {
     }
     
     func rotationAmount(for index: Int) -> Double {
-        print("isAnswered=\(isAnswered); index=\(index) == correctAnswer=\(correctAnswer); state=\(state)")
         guard isAnswered
             else { return 0 }
         switch state {

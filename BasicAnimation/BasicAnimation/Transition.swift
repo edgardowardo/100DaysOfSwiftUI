@@ -24,8 +24,8 @@ struct Transition: View {
                   Rectangle()
                     .fill(Color.red)
                     .frame(width: 200, height: 200)
-//                    .transition(.scale)
-                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                    .transition(.slide)
+//                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
               }
           }
           .navigationBarTitle("Transition (Asymetric)")
