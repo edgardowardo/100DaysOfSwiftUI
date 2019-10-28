@@ -12,7 +12,6 @@ struct ContentView: View {
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
-    @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var questionCount = 0
     @State private var score = 0
@@ -47,21 +46,28 @@ struct ContentView: View {
                             .renderingMode(.original)
                             .opacity(self.flagOpacity(for: number))
                     }
-                    .clipShape(Capsule())
-                    .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+                    .clipShape(Rectangle())
+                    .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
                     .shadow(color: .black, radius: 2)
+                    .rotation3DEffect(.degrees(self.rotationAmount(for: number)), axis: (x: 0, y: 1, z: 0), anchor: .leading, anchorZ: 0, perspective: 0.5)
                 }
                 Text("Your score is \(score) / \(questionCount)")
                     .foregroundColor(.white)
                 Spacer()
-            }
-        }
-        .alert(isPresented: $showingScore) {
-            Alert(title: Text(scoreTitle), message: Text("That's the flag of \(countries[indexTapped])"), dismissButton: .default(Text("Continue")) {
-                withAnimation(.easeInOut(duration: 1.0)) {
-                    self.askQuestion()
+                if scoreTitle != "" {
+                    Text("\(scoreTitle)!, that's the flag of \(countries[indexTapped])")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    Button("Continue") {
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            self.askQuestion()
+                        }
+                    }
                 }
-            })
+            }
         }
     }
     
@@ -77,19 +83,28 @@ struct ContentView: View {
             state = .lose
         }
         animate.toggle()
-        showingScore = true
     }
     
     func askQuestion() {
+        scoreTitle = ""
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         animate.toggle()
+        state = .none
     }
     
     func flagOpacity(for index: Int) -> Double {
         guard animate
             else { return 1 }
         return index == correctAnswer ? 1 : 0.25
+    }
+    
+    func rotationAmount(for index: Int) -> Double {
+        print("index=\(index) == correctAnswer=\(correctAnswer); state=\(state); animate=\(animate)")
+        switch state {
+        case .none, .lose: return 0
+        case .win: return index == correctAnswer ? 360 : 0
+        }
     }
 }
 
