@@ -16,12 +16,14 @@ struct ContentView: View {
     @State private var score = 0
     @State private var indexTapped = 0
     @State private var state = AnswerResult.none
+    @State private var isAnswered = false
 
     var body: some View {
         print("state=\(state)")
         return ZStack {
             Color.clear.edgesIgnoringSafeArea(.all)
-                .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: state == .none ? 0 : 1 )))
+                .overlay(Color.clear.modifier(AnimatableGradient(from: AnswerResult.none.gradient, to: state.gradient, pct: isAnswered ? 1 : 0 )))
+                .animation(.easeInOut(duration: 1))
             
             VStack(spacing: 30 ) {
                 VStack {
@@ -35,11 +37,10 @@ struct ContentView: View {
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                 }
+                .animation(nil)
                 ForEach(0 ..< 3) { number in
                     Button(action: {
-                        withAnimation(.easeInOut(duration: 1.0)) {
-                            self.flagTapped(number)
-                        }
+                        self.flagTapped(number)
                     }) {
                         Image(self.countries[number])
                             .renderingMode(.original)
@@ -47,24 +48,27 @@ struct ContentView: View {
                     .clipShape(Rectangle())
                     .overlay(Rectangle().stroke(Color.black, lineWidth: 1))
                     .shadow(color: .black, radius: 2)
-                    .opacity(self.flagOpacity(for: number))
                     .rotation3DEffect(.degrees(self.rotationAmount(for: number)), axis: (x: 0, y: 1, z: 0), anchor: .leading, anchorZ: 0, perspective: 0.5)
+                    .animation(self.isAnswered ? .default : nil)
+                    .opacity(self.flagOpacity(for: number))
+                    .animation(.default)
                 }
                 Text("Your score is \(score) / \(questionCount)")
                     .foregroundColor(.white)
                 Spacer()
-                if !state.scoreTitle.isEmpty {
-                    Text("\(state.scoreTitle)!, that's the flag of \(countries[indexTapped])")
-                        .foregroundColor(.white)
-                        .font(.largeTitle)
-                        .fontWeight(.black)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                    Button("Continue") {
-                        withAnimation(.easeInOut(duration: 1.0)) {
+                if isAnswered {
+                    VStack {
+                        Text("\(state.scoreTitle)!, that's the flag of \(countries[indexTapped])")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .fontWeight(.black)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        Button("Continue") {
                             self.askQuestion()
                         }
                     }
+                    .animation(.default)
                 }
             }
         }
@@ -79,22 +83,25 @@ struct ContentView: View {
         } else {
             state = .lose
         }
+        isAnswered.toggle()
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-        state = .none
+        isAnswered.toggle()
     }
     
     func flagOpacity(for index: Int) -> Double {
-        guard state != .none
+        guard isAnswered
             else { return 1 }
         return index == correctAnswer ? 1 : 0.25
     }
     
     func rotationAmount(for index: Int) -> Double {
-        print("index=\(index) == correctAnswer=\(correctAnswer); state=\(state)")
+        print("isAnswered=\(isAnswered); index=\(index) == correctAnswer=\(correctAnswer); state=\(state)")
+        guard isAnswered
+            else { return 0 }
         switch state {
         case .none, .lose: return 0
         case .win: return index == correctAnswer ? 360 : 0
