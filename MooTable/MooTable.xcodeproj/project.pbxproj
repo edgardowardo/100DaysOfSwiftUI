@@ -13,6 +13,7 @@
 		77EA360F236845DA0083025C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EA360E236845DA0083025C /* Assets.xcassets */; };
 		77EA3612236845DA0083025C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77EA3611236845DA0083025C /* Preview Assets.xcassets */; };
 		77EA3615236845DB0083025C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77EA3613236845DB0083025C /* LaunchScreen.storyboard */; };
+		77EA361D2368465D0083025C /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EA361C2368465D0083025C /* Onboarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		77EA3611236845DA0083025C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77EA3614236845DB0083025C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77EA3616236845DB0083025C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77EA361C2368465D0083025C /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				77EA3613236845DB0083025C /* LaunchScreen.storyboard */,
 				77EA3616236845DB0083025C /* Info.plist */,
 				77EA3610236845DA0083025C /* Preview Content */,
+				77EA361C2368465D0083025C /* Onboarding.swift */,
 			);
 			path = MooTable;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				77EA3609236845D90083025C /* AppDelegate.swift in Sources */,
 				77EA360B236845D90083025C /* SceneDelegate.swift in Sources */,
+				77EA361D2368465D0083025C /* Onboarding.swift in Sources */,
 				77EA360D236845D90083025C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
