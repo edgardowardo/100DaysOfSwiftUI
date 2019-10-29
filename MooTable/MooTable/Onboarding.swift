@@ -24,8 +24,8 @@ struct Onboarding: View {
     @State private var mamaMooSays = ""
     @State private var showMooBoo = false
     @State private var showFriends = false
-    @State private var friendsCount = 6
-    @State private var friends = [Int](repeating: 0, count: 6)
+    @State private var friendsCount = 5
+    @State private var friends = [Int](repeating: 0, count: 5)
     
     var body: some View {
         let friendsCountShim = Binding(
@@ -52,16 +52,8 @@ struct Onboarding: View {
 
                 if showFriends {
                     VStack(spacing: 20) {
-                        Stepper(value: friendsCountShim, in: 1...12) {
-                            HStack {
-                                Text("\(friendsCount)")
-                                    .animation(nil)
-                                ForEach(friends, id: \.self) { _ in
-                                    Image("cow")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
-                                }
-                            }
+                        Stepper(value: friendsCountShim, in: 1...11) {
+                            FriendsView(friendsCount: friendsCount, friends: friends)
                         }
                     }
                     .animation(.default)
@@ -95,7 +87,7 @@ struct Onboarding: View {
     }
 }
 
-private let typeDelay = 0.1
+private let typeDelay = 0.01
 
 extension Onboarding {
     
