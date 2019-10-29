@@ -14,18 +14,32 @@ I moo a lot with my friends.
 Can you "moo"ltiply and count our moos?
 """
 
-private let moorvelous = """
+private let stepperText = """
 Moorvellous!
 Click + to meet my friends
+and select the number of questions
 """
 
 struct Onboarding: View {
     @State private var mamaMooSays = ""
     @State private var showMooBoo = false
-
+    @State private var showFriends = false
+    @State private var friendsCount = 6
+    @State private var friends = [Int](repeating: 0, count: 6)
+    
     var body: some View {
-        
-        ZStack {
+        let friendsCountShim = Binding(
+            get: { self.friendsCount },
+            set: {
+                if self.friendsCount < $0 {
+                    self.friends.append(0)
+                } else {
+                    self.friends.removeLast()
+                }
+                self.friendsCount = $0
+            }
+        )
+        return ZStack {
             VStack(spacing: 20) {
                 Spacer()
                 
@@ -34,6 +48,24 @@ struct Onboarding: View {
                 
                 Text(mamaMooSays)
                     .fontWeight(.heavy)
+                    .animation(nil)
+
+                if showFriends {
+                    VStack(spacing: 20) {
+                        Stepper(value: friendsCountShim, in: 1...12) {
+                            HStack {
+                                Text("\(friendsCount)")
+                                    .animation(nil)
+                                ForEach(friends, id: \.self) { _ in
+                                    Image("cow")
+                                        .resizable()
+                                        .frame(width: 10, height: 10)
+                                }
+                            }
+                        }
+                    }
+                    .animation(.default)
+                }
                 
                 Spacer()
             }
@@ -42,8 +74,13 @@ struct Onboarding: View {
                     withAnimation {
                         self.mamaMooSays = ""
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                            self.append(moorvelous)
+                            self.append(stepperText)
                             self.showMooBoo = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + Double(stepperText.count) * typeDelay) {
+                                withAnimation {
+                                    self.showFriends = true
+                                }
+                            }
                         }
                     }
                 }) {
