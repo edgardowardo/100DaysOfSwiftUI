@@ -11,18 +11,32 @@ import SwiftUI
 private let intro = """
 Hi! I'm Mama Moo.
 I moo a lot with my friends.
-Can you "moo"ltiply and count our moos?
+Can you mooltiply and count our moos?
 """
 
 private let stepperText = """
-Moorvellous!
-Click + to meet my friends
-and select the number of questions
+Moorvellous! Click + to meet my friends
 """
+
+private let pickerText = """
+then select the number of questions
+"""
+
+enum MamaSays {
+    case mamaSays, mamaSays2
+}
 
 struct Onboarding: View {
     @State private var mamaMooSays = ""
+    @State private var mamaMooSays2 = ""
+    
     @State private var showMooBoo = false
+    @State private var showStart = false
+
+    @State private var showQuestionsCount = false
+    @State private var indexQuestions = 0
+    let questionCounts = [5, 10, 20, .max]
+
     @State private var showFriends = false
     @State private var friendsCount = 5
     @State private var friends = [Int](repeating: 0, count: 5)
@@ -40,59 +54,86 @@ struct Onboarding: View {
             }
         )
         return ZStack {
-            VStack(spacing: 20) {
+            VStack(spacing: 50) {
                 Spacer()
                 
                 Image("cow")
-                    .animation(.default)
-                
-                Text(mamaMooSays)
-                    .fontWeight(.heavy)
-                    .animation(nil)
 
-                if showFriends {
-                    VStack(spacing: 20) {
-                        Stepper(value: friendsCountShim, in: 1...11) {
-                            FriendsView(friendsCount: friendsCount, friends: friends)
+                VStack(spacing: 10) {
+                    Text(mamaMooSays)
+                        .fontWeight(.heavy)
+                        .animation(nil)
+                    
+                    if showFriends {
+                        VStack(spacing: 20) {
+                            Stepper(value: friendsCountShim, in: 1...11) {
+                                FriendsView(friendsCount: friendsCount, friends: friends)
+                            }
                         }
                     }
-                    .animation(.default)
+                }
+
+                VStack {
+                    Text(mamaMooSays2)
+                        .fontWeight(.heavy)
+                        .animation(nil)
+                    if showQuestionsCount {
+                        Picker("Questions", selection: $indexQuestions) {
+                               ForEach(0 ..< questionCounts.count) {
+                                   Text("\(self.questionCounts[$0] == .max ? "All" : "\(self.questionCounts[$0] )")")
+                               }
+                           }
+                           .pickerStyle(SegmentedPickerStyle())
+                    }
                 }
                 
                 Spacer()
             }
             if showMooBoo {
-                DecisionView(yesHandler: {
-                    withAnimation {
-                        self.mamaMooSays = ""
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                            self.append(stepperText)
-                            self.showMooBoo = false
-                            DispatchQueue.main.asyncAfter(deadline: .now() + Double(stepperText.count) * typeDelay) {
-                                withAnimation {
-                                    self.showFriends = true
-                                }
-                            }
-                        }
-                    }
-                }) {
-                    print("no")
-                }
+                DecisionView(yesTitle: "Count Moos", noTitle: "Boo", yesHandler: countMoos) {}
+            }
+            if showStart {
+                DecisionView(yesTitle: "Start", noTitle: "Cancel", yesHandler: {}) {}
             }
         }
         .onAppear(perform: appear)
         .multilineTextAlignment(.center)
         .font(.title)
         .padding()
+        .animation(.default)
     }
 }
 
-private let typeDelay = 0.01
+private let typeDelay = 0.1
 
 extension Onboarding {
     
+    func showStepper() {
+        self.append(stepperText, mamaSays: .mamaSays)
+        self.showMooBoo = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(stepperText.count) * typeDelay) {
+            withAnimation {
+                self.showFriends = true
+                self.append(pickerText, mamaSays: .mamaSays2)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(pickerText.count) * typeDelay) {
+                withAnimation {
+                    self.showQuestionsCount = true
+                    self.showStart = true
+                }
+            }
+        }
+    }
+    
+    func countMoos() {
+        withAnimation {
+            self.mamaMooSays = ""
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: showStepper)
+        }
+    }
+    
     func appear() {
-        append(intro)
+        append(intro, mamaSays: .mamaSays)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(intro.count) * typeDelay) {
             withAnimation {
@@ -101,14 +142,17 @@ extension Onboarding {
         }
     }
     
-    func append(_ text: String) {
+    func append(_ text: String, mamaSays: MamaSays) {
         guard !text.isEmpty
             else { return }
         var arrayText = Array(text)
-        mamaMooSays.append(arrayText[0])
+        switch mamaSays {
+        case .mamaSays: mamaMooSays.append(arrayText[0])
+        case .mamaSays2: mamaMooSays2.append(arrayText[0])
+        }
         arrayText.removeFirst()
         DispatchQueue.main.asyncAfter(deadline: .now() + typeDelay) {
-            self.append(String(arrayText))
+            self.append(String(arrayText), mamaSays: mamaSays)
         }
     }
 }

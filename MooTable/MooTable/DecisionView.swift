@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct DecisionView: View {
+    let yesTitle: String
+    let noTitle: String
     let yesHandler: ()->Void
     let noHandler: ()->Void
     
@@ -17,12 +19,12 @@ struct DecisionView: View {
             Spacer()
             HStack {
                 Button(action: yesHandler) {
-                    Text("Moo ✅")
+                    Text("\(yesTitle) ✅")
                         .fontWeight(.bold)
                 }.foregroundColor(.green)
                 Spacer()
                 Button(action: noHandler) {
-                    Text("Boo ❌")
+                    Text("\(noTitle) ❌")
                         .fontWeight(.bold)
                 }.foregroundColor(.red)
             }
@@ -34,7 +36,7 @@ struct DecisionView: View {
 
 struct DecisionView_Previews: PreviewProvider {
     static var previews: some View {
-        DecisionView(yesHandler: {
+        DecisionView(yesTitle: "Moo", noTitle: "Boo", yesHandler: {
             print("yes")
         }) {
             print("no")
