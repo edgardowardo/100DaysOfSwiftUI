@@ -21,14 +21,15 @@ Moorvellous! Click + to meet my friends
 private let pickerText = """
 then select the number of questions
 """
-
-enum MamaSays {
-    case mamaSays, mamaSays2
+    
+extension Onboarding: AnimatableParagraph {
+    func append(_ char: String.Element, at index: Int) {
+        lines[index].append(char)
+    }
 }
 
 struct Onboarding: View {
-    @State private var mamaMooSays = ""
-    @State private var mamaMooSays2 = ""
+    @State internal var lines = ["", ""]
     
     @State private var showMooBoo = false
     @State private var showStart = false
@@ -60,7 +61,7 @@ struct Onboarding: View {
                 Image("cow")
 
                 VStack(spacing: 10) {
-                    Text(mamaMooSays)
+                    Text(lines[0])
                         .fontWeight(.heavy)
                         .animation(nil)
                     
@@ -74,7 +75,7 @@ struct Onboarding: View {
                 }
 
                 VStack {
-                    Text(mamaMooSays2)
+                    Text(lines[1])
                         .fontWeight(.heavy)
                         .animation(nil)
                     if showQuestionsCount {
@@ -104,17 +105,15 @@ struct Onboarding: View {
     }
 }
 
-private let typeDelay = 0.1
-
 extension Onboarding {
     
     func showStepper() {
-        self.append(stepperText, mamaSays: .mamaSays)
+        self.append(stepperText, at: 0)
         self.showMooBoo = false
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(stepperText.count) * typeDelay) {
             withAnimation {
                 self.showFriends = true
-                self.append(pickerText, mamaSays: .mamaSays2)
+                self.append(pickerText, at: 1)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(pickerText.count) * typeDelay) {
                 withAnimation {
@@ -127,32 +126,18 @@ extension Onboarding {
     
     func countMoos() {
         withAnimation {
-            self.mamaMooSays = ""
+            self.lines[0] = ""
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: showStepper)
         }
     }
     
     func appear() {
-        append(intro, mamaSays: .mamaSays)
+        append(intro, at: 0)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(intro.count) * typeDelay) {
             withAnimation {
                 self.showMooBoo = true
             }
-        }
-    }
-    
-    func append(_ text: String, mamaSays: MamaSays) {
-        guard !text.isEmpty
-            else { return }
-        var arrayText = Array(text)
-        switch mamaSays {
-        case .mamaSays: mamaMooSays.append(arrayText[0])
-        case .mamaSays2: mamaMooSays2.append(arrayText[0])
-        }
-        arrayText.removeFirst()
-        DispatchQueue.main.asyncAfter(deadline: .now() + typeDelay) {
-            self.append(String(arrayText), mamaSays: mamaSays)
         }
     }
 }
