@@ -1,5 +1,5 @@
 //
-//  Onboarding.swift
+//  OnboardingView.swift
 //  MooTable
 //
 //  Created by EDGARDO AGNO on 29/10/2019.
@@ -21,18 +21,13 @@ Moorvellous! Click + to meet my friends
 private let pickerText = """
 then select the number of questions
 """
-    
-extension Onboarding: AnimatableParagraph {
-    func append(_ char: String.Element, at index: Int) {
-        lines[index].append(char)
-    }
-}
 
-struct Onboarding: View {
+struct OnboardingView: View {
     @State internal var lines = ["", ""]
     
     @State private var showMooBoo = false
     @State private var showStart = false
+    @State private var showGame = false
 
     @State private var showQuestionsCount = false
     @State private var indexQuestions = 0
@@ -56,9 +51,20 @@ struct Onboarding: View {
         )
         return ZStack {
             VStack(spacing: 50) {
-                Spacer()
-                
-                Image("cow")
+                if !showGame {
+                    Spacer()
+                }
+
+                HStack {
+                    Spacer()
+                    Image("cow")
+                        .resizable()
+                        .frame(width: showGame ? 30 : 150, height: showGame ? 30 : 150)
+//                        .opacity(showGame ? 0 : 1)
+                    if !showGame {
+                        Spacer()
+                    }
+                }
 
                 VStack(spacing: 10) {
                     Text(lines[0])
@@ -94,7 +100,7 @@ struct Onboarding: View {
                 DecisionView(yesTitle: "Count Moos", noTitle: "Boo", yesHandler: countMoos) {}
             }
             if showStart {
-                DecisionView(yesTitle: "Start", noTitle: "Cancel", yesHandler: {}) {}
+                DecisionView(yesTitle: "Start", noTitle: "Cancel", yesHandler: startGame) {}
             }
         }
         .onAppear(perform: appear)
@@ -105,7 +111,22 @@ struct Onboarding: View {
     }
 }
 
-extension Onboarding {
+extension OnboardingView: AnimatableParagraph {
+    func append(_ char: String.Element, at index: Int) {
+        lines[index].append(char)
+    }
+}
+
+extension OnboardingView {
+    
+    func startGame() {
+        showStart = false
+        showQuestionsCount = false
+        showFriends = false
+        lines[0] = ""
+        lines[1] = ""
+        showGame = true
+    }
     
     func showStepper() {
         self.append(stepperText, at: 0)
@@ -144,6 +165,6 @@ extension Onboarding {
 
 struct Onboarding_Previews: PreviewProvider {
     static var previews: some View {
-        Onboarding()
+        OnboardingView()
     }
 }

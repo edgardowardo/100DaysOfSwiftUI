@@ -41,6 +41,6 @@ struct FriendsView: View {
 
 struct FriendsView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsView(friendsCount: 1, friends: [0])
+        FriendsView(friendsCount: 12, friends: [Int](repeatElement(0, count: 12)))
     }
 }
