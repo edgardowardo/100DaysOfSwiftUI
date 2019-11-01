@@ -9,13 +9,22 @@
 import SwiftUI
 
 struct FriendsView: View {
+    let showCount: Bool
     let friendsCount: Int
     let friends: [Int]
     
+    init(showCount: Bool, friendsCount: Int) {
+        self.showCount = showCount
+        self.friendsCount = friendsCount
+        self.friends = [Int](repeatElement(0, count: friendsCount))
+    }
+    
     var body: some View {
         HStack(spacing: 20) {
-            Text("\(friendsCount)")
-                .animation(nil)
+            if showCount {
+                Text("\(friendsCount)")
+                    .animation(nil)
+            }
             VStack {
                 HStack {
                     ForEach(friends.prefix(6), id: \.self) { _ in
@@ -41,6 +50,7 @@ struct FriendsView: View {
 
 struct FriendsView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsView(friendsCount: 12, friends: [Int](repeatElement(0, count: 12)))
+        FriendsView(showCount: true,
+                    friendsCount: 12)
     }
 }

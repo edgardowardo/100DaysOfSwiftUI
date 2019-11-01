@@ -35,21 +35,9 @@ struct OnboardingView: View {
 
     @State private var showFriends = false
     @State private var friendsCount = 4
-    @State private var friends = [Int](repeating: 0, count: 4)
     
     var body: some View {
-        let friendsCountShim = Binding(
-            get: { self.friendsCount },
-            set: {
-                if self.friendsCount < $0 {
-                    self.friends.append(0)
-                } else {
-                    self.friends.removeLast()
-                }
-                self.friendsCount = $0
-            }
-        )
-        return ZStack {
+        ZStack {
             VStack(spacing: 50) {
                 if !showGame {
                     Spacer()
@@ -73,8 +61,9 @@ struct OnboardingView: View {
                     
                     if showFriends {
                         VStack(spacing: 20) {
-                            Stepper(value: friendsCountShim, in: 1...11) {
-                                FriendsView(friendsCount: friendsCount, friends: friends)
+                            Stepper(value: $friendsCount, in: 1...11) {
+                                FriendsView(showCount: true,
+                                            friendsCount: friendsCount)
                             }
                         }
                     }

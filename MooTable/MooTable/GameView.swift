@@ -12,7 +12,10 @@ struct QuestionView: View {
     let question: Question
 
     var body: some View {
-        Text("")
+        VStack {
+            FriendsView(showCount: false,
+                        friendsCount: question.friendsCount)
+        }
     }
 }
 
@@ -29,8 +32,8 @@ struct GameView: View {
                     Spacer()
                 }
                 
-                FriendsView(friendsCount: game.friendsCount,
-                            friends: [Int](repeatElement(0, count: game.friendsCount)))
+                FriendsView(showCount: false,
+                            friendsCount: game.friendsCount)
                 if showInstruct {
                     Text(lines[0])
                         .fontWeight(.heavy)
