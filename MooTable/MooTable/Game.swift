@@ -30,7 +30,9 @@ struct Game {
         var questions = [Question]()
         for i in 0 ..< self.friendsCount {
             for j in 0 ..< self.mooCount {
-                questions.append(.init(friendsCount: i+1, mooCount: j+1))
+                questions.append(.init(friendsCount: i+1,
+                                       mooCount: j+1,
+                                       maxAnswer: self.friendsCount * self.mooCount))
             }
         }
         questions.shuffle()

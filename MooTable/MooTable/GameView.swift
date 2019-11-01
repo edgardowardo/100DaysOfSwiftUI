@@ -8,6 +8,14 @@
 
 import SwiftUI
 
+struct QuestionView: View {
+    let question: Question
+
+    var body: some View {
+        Text("")
+    }
+}
+
 struct GameView: View {
     let game: Game
     @State private var showStart = false
