@@ -19,7 +19,7 @@ Moorvellous! Click + to meet my friends
 """
 
 private let pickerText = """
-then select the number of questions
+How many questions
 """
 
 struct OnboardingView: View {
@@ -60,7 +60,7 @@ struct OnboardingView: View {
                     Image("cow")
                         .resizable()
                         .frame(width: showGame ? 30 : 150, height: showGame ? 30 : 150)
-//                        .opacity(showGame ? 0 : 1)
+                        .opacity(showGame ? 0 : 1)
                     if !showGame {
                         Spacer()
                     }
@@ -101,6 +101,10 @@ struct OnboardingView: View {
             }
             if showStart {
                 DecisionView(yesTitle: "Start", noTitle: "Cancel", yesHandler: startGame) {}
+            }
+            if showGame {
+                GameView(game: Game(questionsCount: self.questionCounts[self.indexQuestions],
+                                    friendsCount: self.friendsCount + 1))
             }
         }
         .onAppear(perform: appear)
