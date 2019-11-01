@@ -10,16 +10,16 @@ import SwiftUI
 
 private let intro = """
 Hi! I'm Mama Moo.
-I moo a lot with my friends.
+I moo a lot with my family.
 Can you mooltiply and count our moos?
 """
 
 private let stepperText = """
-Moorvellous! Click + to meet my friends
+Moorvellous! Click + to meet my family
 """
 
 private let pickerText = """
-How many questions
+How many questions?
 """
 
 struct OnboardingView: View {
@@ -34,8 +34,8 @@ struct OnboardingView: View {
     let questionCounts = [5, 10, 20, .max]
 
     @State private var showFriends = false
-    @State private var friendsCount = 5
-    @State private var friends = [Int](repeating: 0, count: 5)
+    @State private var friendsCount = 4
+    @State private var friends = [Int](repeating: 0, count: 4)
     
     var body: some View {
         let friendsCountShim = Binding(
@@ -97,7 +97,7 @@ struct OnboardingView: View {
                 Spacer()
             }
             if showMooBoo {
-                DecisionView(yesTitle: "Count Moos", noTitle: "Boo", yesHandler: countMoos) {}
+                DecisionView(yesTitle: "Mooltiply", noTitle: "Boo", yesHandler: countMoos) {}
             }
             if showStart {
                 DecisionView(yesTitle: "Start", noTitle: "Cancel", yesHandler: startGame) {}

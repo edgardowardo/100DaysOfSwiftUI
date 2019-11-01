@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-let typeDelay = 0.1
+let typeDelay = 0.01
 
 protocol AnimatableParagraph {
     var lines: [String] { get set }

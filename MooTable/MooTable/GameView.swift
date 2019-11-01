@@ -8,12 +8,6 @@
 
 import SwiftUI
 
-struct Game {
-    let questionsCount: Int
-    let friendsCount: Int
-    let mooCount = Int.random(in: 1...12)
-}
-
 struct GameView: View {
     let game: Game
     @State private var showStart = false
@@ -40,6 +34,7 @@ struct GameView: View {
         }.onAppear {
             self.showStart = true
             print("\(self.game.questionsCount) \(self.game.friendsCount) \(self.game.mooCount)")
+            print("\(self.game)")
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: self.start)
         }
@@ -59,7 +54,7 @@ extension GameView {
     
     private var instruction: String {
         return  """
-        If each of us moo \(game.mooCount) times. How many do we all moo?
+        If each of us moo \(game.mooCount) times. How many total moos are there?
         """
     }
 }
