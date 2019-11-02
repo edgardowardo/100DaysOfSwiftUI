@@ -15,6 +15,8 @@ struct GameView: View {
         List(game.questions, id: \.self) {
             QuestionView(question: $0)
         }.onAppear {
+            UITableView.appearance().separatorStyle = .none
+            
             print("\(self.game.questionsCount) \(self.game.friendsCount) \(self.game.mooCount)")
             print("\(self.game)")
             

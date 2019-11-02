@@ -11,24 +11,30 @@ import SwiftUI
 struct QuestionView: View {
     let question: Question
     @State internal var lines = [""]
+    @State private var answer: Int?
 
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             FriendsView(showCount: false,
                         friendsCount: question.friendsCount)
             Text(lines[0])
             HStack {
                 ForEach(question.choices, id: \.self) { choice in
-                    Button(action: {
-                        print("\(choice)")
-                    }) {
-                        Text("\(choice)")
-                    }
+                    Text("\(choice)")
+                        .padding(5)
+                        .background(self.answer == nil || self.answer != choice ? Color(white: 0.9)
+                            : ( self.question.answer == self.answer ? .green : .red ))
+                        .cornerRadius(10)
+                        .frame(width: 100)
+                        .onTapGesture {
+                            self.answer = choice
+                            print("\(choice)")
+                        }
                 }
             }
         }
         .onAppear {
-            self.lines[0] = "\(self.question.friendsCount) mooltiply by \(self.question.mooCount) moos is"
+            self.lines[0] = "\(self.question.friendsCount) by \(self.question.mooCount) moos is"
 //            self.append("\(self.question.friendsCount) mooltiply by \(self.question.mooCount) moos is", at: 0)
         }
     }
