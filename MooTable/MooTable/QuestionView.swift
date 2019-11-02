@@ -14,7 +14,7 @@ struct QuestionView: View {
     @State private var answer: Int?
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
             FriendsView(showCount: false,
                         friendsCount: question.friendsCount)
             Text(lines[0])
@@ -33,6 +33,7 @@ struct QuestionView: View {
                 }
             }
         }
+        .padding()
         .onAppear {
             self.lines[0] = "\(self.question.friendsCount) by \(self.question.mooCount) moos is"
 //            self.append("\(self.question.friendsCount) mooltiply by \(self.question.mooCount) moos is", at: 0)
