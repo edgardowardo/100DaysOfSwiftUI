@@ -14,6 +14,7 @@ struct Question {
     let maxAnswer: Int
     let answer: Int
     let choices: [Int]
+    var playerAnswer: Int?
     
     init(friendsCount: Int,
          mooCount: Int,
