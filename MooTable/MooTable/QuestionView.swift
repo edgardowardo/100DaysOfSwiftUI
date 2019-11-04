@@ -17,12 +17,14 @@ struct QuestionView: View {
         VStack(spacing: 10) {
             FriendsView(showCount: false,
                         friendsCount: question.friendsCount)
+
             Text(lines[0])
+
             HStack {
                 ForEach(question.choices, id: \.self) { choice in
                     Text("\(choice)")
                         .padding(5)
-                        .background(self.answer == nil || self.answer != choice ? Color(white: 0.9)
+                        .background(self.answer == nil || self.answer != choice ? Color(white: 0.5)
                             : ( self.question.answer == self.answer ? .green : .red ))
                         .cornerRadius(10)
                         .frame(width: 100)
@@ -33,6 +35,7 @@ struct QuestionView: View {
                 }
             }
         }
+        .animation(nil)
         .padding()
         .onAppear {
             self.lines[0] = "\(self.question.friendsCount) by \(self.question.mooCount) moos is"
