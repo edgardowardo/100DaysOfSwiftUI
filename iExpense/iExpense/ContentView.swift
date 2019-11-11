@@ -8,13 +8,6 @@
 
 import SwiftUI
 
-struct ExpenseItem: Identifiable, Codable {
-    let id = UUID()
-    let name: String
-    let type: String
-    let amount: Int
-}
-
 class Expenses: ObservableObject {
     @Published var items: [ExpenseItem] {
         didSet {
@@ -47,7 +40,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(expenses.items) { item in
-                    Text(item.name)
+                    ExpenseView(item: item)
                 }
                 .onDelete(perform: removeItems)
             }
