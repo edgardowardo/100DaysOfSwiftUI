@@ -16,6 +16,16 @@ struct Mission: Codable, Identifiable {
 }
 
 extension Mission {
+    var displayName: String {
+        "Apollo \(id)"
+    }
+
+    var image: String {
+        "apollo\(id)"
+    }
+}
+
+extension Mission {
     struct CrewRole: Codable {
         let name: String
         let role: String
