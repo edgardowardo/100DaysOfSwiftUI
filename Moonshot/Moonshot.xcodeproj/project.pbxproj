@@ -76,7 +76,6 @@
 				77625F11237ADDF500C2442C /* LaunchScreen.storyboard */,
 				77625F14237ADDF500C2442C /* Info.plist */,
 				77625F0E237ADDF500C2442C /* Preview Content */,
-				77625F25237AE0F000C2442C /* Bundle+Codable.swift */,
 			);
 			path = Moonshot;
 			sourceTree = "<group>";
@@ -110,6 +109,7 @@
 			children = (
 				77625F1A237ADE4900C2442C /* astronauts.json */,
 				77625F1B237ADE4900C2442C /* missions.json */,
+				77625F25237AE0F000C2442C /* Bundle+Codable.swift */,
 			);
 			path = Bundle;
 			sourceTree = "<group>";

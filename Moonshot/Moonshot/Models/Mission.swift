@@ -10,9 +10,16 @@ import Foundation
 
 struct Mission: Codable, Identifiable {
     let id: Int
-    let launchDate: String?
+    let launchDate: Date?
     let crew: [CrewRole]
     let description: String
+}
+
+extension Mission {
+    struct CrewRole: Codable {
+        let name: String
+        let role: String
+    }
 }
 
 extension Mission {
@@ -23,11 +30,14 @@ extension Mission {
     var image: String {
         "apollo\(id)"
     }
-}
-
-extension Mission {
-    struct CrewRole: Codable {
-        let name: String
-        let role: String
+    
+    var formattedLaunchDate: String {
+        if let launchDate = launchDate {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            return formatter.string(from: launchDate)
+        } else {
+            return "N/A"
+        }
     }
 }
