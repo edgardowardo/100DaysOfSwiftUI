@@ -19,6 +19,7 @@
 		77625F24237AE01300C2442C /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625F23237AE01300C2442C /* Mission.swift */; };
 		77625F26237AE0F000C2442C /* Bundle+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625F25237AE0F000C2442C /* Bundle+Codable.swift */; };
 		77625F28237AE77500C2442C /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625F27237AE77500C2442C /* MissionView.swift */; };
+		77625F2A237AE9AC00C2442C /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625F29237AE9AC00C2442C /* AstronautView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		77625F23237AE01300C2442C /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		77625F25237AE0F000C2442C /* Bundle+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Codable.swift"; sourceTree = "<group>"; };
 		77625F27237AE77500C2442C /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		77625F29237AE9AC00C2442C /* AstronautView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				77625F27237AE77500C2442C /* MissionView.swift */,
+				77625F29237AE9AC00C2442C /* AstronautView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			files = (
 				77625F28237AE77500C2442C /* MissionView.swift in Sources */,
 				77625F07237ADDF400C2442C /* AppDelegate.swift in Sources */,
+				77625F2A237AE9AC00C2442C /* AstronautView.swift in Sources */,
 				77625F09237ADDF400C2442C /* SceneDelegate.swift in Sources */,
 				77625F26237AE0F000C2442C /* Bundle+Codable.swift in Sources */,
 				77625F0B237ADDF400C2442C /* ContentView.swift in Sources */,
