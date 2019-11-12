@@ -15,6 +15,7 @@
 		77625F13237ADDF500C2442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77625F11237ADDF500C2442C /* LaunchScreen.storyboard */; };
 		77625F1C237ADE4900C2442C /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 77625F1A237ADE4900C2442C /* astronauts.json */; };
 		77625F1D237ADE4900C2442C /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 77625F1B237ADE4900C2442C /* missions.json */; };
+		77625F21237ADF1B00C2442C /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77625F20237ADF1B00C2442C /* Astronaut.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		77625F14237ADDF500C2442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77625F1A237ADE4900C2442C /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		77625F1B237ADE4900C2442C /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
+		77625F20237ADF1B00C2442C /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		77625F05237ADDF400C2442C /* Moonshot */ = {
 			isa = PBXGroup;
 			children = (
+				77625F1F237ADF0800C2442C /* Views */,
+				77625F1E237ADEFC00C2442C /* Models */,
 				77625F1A237ADE4900C2442C /* astronauts.json */,
 				77625F1B237ADE4900C2442C /* missions.json */,
 				77625F06237ADDF400C2442C /* AppDelegate.swift */,
@@ -79,6 +83,21 @@
 				77625F0F237ADDF500C2442C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77625F1E237ADEFC00C2442C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77625F20237ADF1B00C2442C /* Astronaut.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77625F1F237ADF0800C2442C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +176,7 @@
 				77625F07237ADDF400C2442C /* AppDelegate.swift in Sources */,
 				77625F09237ADDF400C2442C /* SceneDelegate.swift in Sources */,
 				77625F0B237ADDF400C2442C /* ContentView.swift in Sources */,
+				77625F21237ADF1B00C2442C /* Astronaut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
