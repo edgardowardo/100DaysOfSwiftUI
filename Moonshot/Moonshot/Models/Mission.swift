@@ -40,4 +40,19 @@ extension Mission {
             return "N/A"
         }
     }
+    
+    var displayedCrew: String {
+        let crews = crew.reduce("") { "\($0), \($1.name.capitalizingFirstLetter())" }
+        return String(crews.dropFirst(2))
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }
