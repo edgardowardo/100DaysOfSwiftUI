@@ -11,6 +11,7 @@ import SwiftUI
 struct AstronautView: View {
     let astronaut: Astronaut
     let missions: [Mission]
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
 
     var body: some View {
         GeometryReader { geometry in
@@ -26,18 +27,21 @@ struct AstronautView: View {
                         .layoutPriority(1)
                     
                     ForEach(self.missions, id: \.id) { mission in
-                        HStack(spacing: 20) {
-                            Image(mission.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 44, height: 44)
-                            VStack(alignment: .leading) {
-                                Text(mission.displayName)
-                                    .font(.headline)
-                                Text(mission.formattedLaunchDate)
+                        NavigationLink(destination: MissionView(mission: mission, astronauts: self.astronauts)) {
+                            HStack(spacing: 20) {
+                                Image(mission.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 44, height: 44)
+                                VStack(alignment: .leading) {
+                                    Text(mission.displayName)
+                                        .font(.headline)
+                                    Text(mission.formattedLaunchDate)
+                                }
                             }
+                            .padding(.leading)
                         }
-                        .padding(.leading)
+                    .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
