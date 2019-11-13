@@ -13,6 +13,7 @@
 		7752EBDC237C4D8000A7B982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7752EBDB237C4D8000A7B982 /* Assets.xcassets */; };
 		7752EBDF237C4D8000A7B982 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7752EBDE237C4D8000A7B982 /* Preview Assets.xcassets */; };
 		7752EBE2237C4D8000A7B982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7752EBE0237C4D8000A7B982 /* LaunchScreen.storyboard */; };
+		7752EBEA237C4F2400A7B982 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBE9237C4F2400A7B982 /* TriangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7752EBDE237C4D8000A7B982 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7752EBE1237C4D8000A7B982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7752EBE3237C4D8000A7B982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7752EBE9237C4F2400A7B982 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				7752EBE0237C4D8000A7B982 /* LaunchScreen.storyboard */,
 				7752EBE3237C4D8000A7B982 /* Info.plist */,
 				7752EBDD237C4D8000A7B982 /* Preview Content */,
+				7752EBE9237C4F2400A7B982 /* TriangleView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				7752EBD6237C4D7D00A7B982 /* AppDelegate.swift in Sources */,
 				7752EBD8237C4D7D00A7B982 /* SceneDelegate.swift in Sources */,
+				7752EBEA237C4F2400A7B982 /* TriangleView.swift in Sources */,
 				7752EBDA237C4D7D00A7B982 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
