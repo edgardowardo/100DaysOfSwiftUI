@@ -25,7 +25,7 @@ struct ContentView: View {
                     NavigationLink("Image paint", destination: ImagePaintView())
                 }
                 Section {
-                    NavigationLink("Color Cycling Circle", destination: ColorCyclingCircleView())
+                    NavigationLink("Color Cycling Circlen on Metal", destination: ColorCyclingCircleView())
                 }
             }
             .navigationBarTitle("Drawings")
