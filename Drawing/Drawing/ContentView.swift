@@ -14,6 +14,8 @@ struct ContentView: View {
             List {
                 NavigationLink("Triangle fill", destination: TriangleView(isFill: true))
                 NavigationLink("Triangle border", destination: TriangleView(isFill: false))
+                NavigationLink("Arc", destination: ArcView(adjusted: false))
+                NavigationLink("Arc adjusted", destination: ArcView(adjusted: true))
             }
             .navigationBarTitle("Drawings")
         }
