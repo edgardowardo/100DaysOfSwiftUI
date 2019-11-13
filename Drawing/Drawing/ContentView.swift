@@ -12,16 +12,21 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink("Triangle fill", destination: TriangleView(isFill: true))
-                NavigationLink("Triangle border", destination: TriangleView(isFill: false))
-                NavigationLink("Arc", destination: ArcView(adjusted: false, insettable: false))
-                NavigationLink("Arc adjusted", destination: ArcView(adjusted: true, insettable: false))
-                NavigationLink("Arc insettable", destination: ArcView(adjusted: true, insettable: true))
-                NavigationLink("Circle not inset", destination: InsettableView(insettable: false))
-                NavigationLink("Circle insettable", destination: InsettableView(insettable: true))
-                NavigationLink("Flower", destination: FlowerView(isFilled: false))
-                NavigationLink("Flower filled", destination: FlowerView(isFilled: true))
-                NavigationLink("Image paint", destination: ImagePaintView())
+                Section {
+                    NavigationLink("Triangle fill", destination: TriangleView(isFill: true))
+                    NavigationLink("Triangle border", destination: TriangleView(isFill: false))
+                    NavigationLink("Arc", destination: ArcView(adjusted: false, insettable: false))
+                    NavigationLink("Arc adjusted", destination: ArcView(adjusted: true, insettable: false))
+                    NavigationLink("Arc insettable", destination: ArcView(adjusted: true, insettable: true))
+                    NavigationLink("Circle not inset", destination: InsettableView(insettable: false))
+                    NavigationLink("Circle insettable", destination: InsettableView(insettable: true))
+                    NavigationLink("Flower", destination: FlowerView(isFilled: false))
+                    NavigationLink("Flower filled", destination: FlowerView(isFilled: true))
+                    NavigationLink("Image paint", destination: ImagePaintView())
+                }
+                Section {
+                    NavigationLink("Color Cycling Circle", destination: ColorCyclingCircleView())
+                }
             }
             .navigationBarTitle("Drawings")
         }
