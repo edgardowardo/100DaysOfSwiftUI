@@ -21,7 +21,7 @@ struct ContentView: View {
                     NavigationLink("Circle not inset", destination: InsettableView(insettable: false))
                     NavigationLink("Circle insettable", destination: InsettableView(insettable: true))
                     NavigationLink("Flower", destination: FlowerView(isFilled: false))
-                    NavigationLink("Flower filled", destination: FlowerView(isFilled: true))
+                    NavigationLink("Flower filled eof (even odd)", destination: FlowerView(isFilled: true))
                     NavigationLink("Image paint", destination: ImagePaintView())
                 }
                 Section {
