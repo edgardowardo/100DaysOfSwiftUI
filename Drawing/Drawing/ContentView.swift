@@ -19,7 +19,8 @@ struct ContentView: View {
                 NavigationLink("Arc insettable", destination: ArcView(adjusted: true, insettable: true))
                 NavigationLink("Circle not inset", destination: InsettableView(insettable: false))
                 NavigationLink("Circle insettable", destination: InsettableView(insettable: true))
-                NavigationLink("Flower", destination: FlowerView())
+                NavigationLink("Flower", destination: FlowerView(isFilled: false))
+                NavigationLink("Flower filled", destination: FlowerView(isFilled: true))
             }
             .navigationBarTitle("Drawings")
         }

@@ -43,15 +43,22 @@ struct Flower: Shape {
 }
 
 struct FlowerView: View {
-    
+
+    let isFilled: Bool
     @State private var petalOffset = -20.0
     @State private var petalWidth = 100.0
     
     var body: some View {
         VStack {
-            Flower(petalOffset: petalOffset, petalWidth: petalWidth)
-                .stroke(Color.red, lineWidth: 1)
-
+            if isFilled {
+                Flower(petalOffset: petalOffset, petalWidth: petalWidth)
+                    .fill(Color.red, style: FillStyle(eoFill: true))
+            }
+            if !isFilled {
+                Flower(petalOffset: petalOffset, petalWidth: petalWidth)
+                    .stroke(Color.red, lineWidth: 1)
+            }
+            
             Text("Offset")
             Slider(value: $petalOffset, in: -40...40)
                 .padding([.horizontal, .bottom])
@@ -65,6 +72,6 @@ struct FlowerView: View {
 
 struct FlowerView_Previews: PreviewProvider {
     static var previews: some View {
-        FlowerView()
+        FlowerView(isFilled: true)
     }
 }
