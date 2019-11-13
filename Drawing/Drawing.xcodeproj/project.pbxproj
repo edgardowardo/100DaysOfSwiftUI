@@ -17,6 +17,7 @@
 		7752EBEC237C541F00A7B982 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBEB237C541E00A7B982 /* ArcView.swift */; };
 		7752EBEE237C582E00A7B982 /* InsettableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBED237C582E00A7B982 /* InsettableView.swift */; };
 		7752EBF0237C5BA900A7B982 /* FlowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBEF237C5BA900A7B982 /* FlowerView.swift */; };
+		7752EBF2237C5E1400A7B982 /* ImagePaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7752EBEB237C541E00A7B982 /* ArcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		7752EBED237C582E00A7B982 /* InsettableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsettableView.swift; sourceTree = "<group>"; };
 		7752EBEF237C5BA900A7B982 /* FlowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerView.swift; sourceTree = "<group>"; };
+		7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaintView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				7752EBEB237C541E00A7B982 /* ArcView.swift */,
 				7752EBED237C582E00A7B982 /* InsettableView.swift */,
 				7752EBEF237C5BA900A7B982 /* FlowerView.swift */,
+				7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7752EBD6237C4D7D00A7B982 /* AppDelegate.swift in Sources */,
+				7752EBF2237C5E1400A7B982 /* ImagePaintView.swift in Sources */,
 				7752EBEC237C541F00A7B982 /* ArcView.swift in Sources */,
 				7752EBD8237C4D7D00A7B982 /* SceneDelegate.swift in Sources */,
 				7752EBEA237C4F2400A7B982 /* TriangleView.swift in Sources */,

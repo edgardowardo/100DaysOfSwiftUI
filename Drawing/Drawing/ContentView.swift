@@ -21,6 +21,7 @@ struct ContentView: View {
                 NavigationLink("Circle insettable", destination: InsettableView(insettable: true))
                 NavigationLink("Flower", destination: FlowerView(isFilled: false))
                 NavigationLink("Flower filled", destination: FlowerView(isFilled: true))
+                NavigationLink("Image paint", destination: ImagePaintView())
             }
             .navigationBarTitle("Drawings")
         }
