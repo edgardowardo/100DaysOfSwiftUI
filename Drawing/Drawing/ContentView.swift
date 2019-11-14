@@ -27,6 +27,7 @@ struct ContentView: View {
                 Section {
                     NavigationLink("Color Cycling Circlen on Metal", destination: ColorCyclingCircleView())
                     NavigationLink("Special effects", destination: SpecialEffectsView())
+                    NavigationLink("Animatable data Trapezoid", destination: AnimatableDataView())
                 }
             }
             .navigationBarTitle("Drawings")

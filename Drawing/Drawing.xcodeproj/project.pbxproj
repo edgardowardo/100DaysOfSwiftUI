@@ -20,6 +20,7 @@
 		7752EBF2237C5E1400A7B982 /* ImagePaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */; };
 		7752EBF4237C604A00A7B982 /* ColorCyclingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */; };
 		7752EBF6237D5E0200A7B982 /* SpecialEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */; };
+		778B8010237D7E6E00DD97AE /* AnimatableDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePaintView.swift; sourceTree = "<group>"; };
 		7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCyclingCircleView.swift; sourceTree = "<group>"; };
 		7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffectsView.swift; sourceTree = "<group>"; };
+		778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				7752EBF1237C5E1400A7B982 /* ImagePaintView.swift */,
 				7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */,
 				7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */,
+				778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				7752EBD6237C4D7D00A7B982 /* AppDelegate.swift in Sources */,
 				7752EBF4237C604A00A7B982 /* ColorCyclingCircleView.swift in Sources */,
+				778B8010237D7E6E00DD97AE /* AnimatableDataView.swift in Sources */,
 				7752EBF2237C5E1400A7B982 /* ImagePaintView.swift in Sources */,
 				7752EBEC237C541F00A7B982 /* ArcView.swift in Sources */,
 				7752EBD8237C4D7D00A7B982 /* SceneDelegate.swift in Sources */,
