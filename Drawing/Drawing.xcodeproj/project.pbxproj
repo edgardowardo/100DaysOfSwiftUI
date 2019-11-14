@@ -21,6 +21,7 @@
 		7752EBF4237C604A00A7B982 /* ColorCyclingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */; };
 		7752EBF6237D5E0200A7B982 /* SpecialEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */; };
 		778B8010237D7E6E00DD97AE /* AnimatableDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */; };
+		778B8012237D7FC500DD97AE /* AnimatablePairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B8011237D7FC500DD97AE /* AnimatablePairView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCyclingCircleView.swift; sourceTree = "<group>"; };
 		7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffectsView.swift; sourceTree = "<group>"; };
 		778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableDataView.swift; sourceTree = "<group>"; };
+		778B8011237D7FC500DD97AE /* AnimatablePairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatablePairView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				7752EBF3237C604A00A7B982 /* ColorCyclingCircleView.swift */,
 				7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */,
 				778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */,
+				778B8011237D7FC500DD97AE /* AnimatablePairView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				778B8012237D7FC500DD97AE /* AnimatablePairView.swift in Sources */,
 				7752EBD6237C4D7D00A7B982 /* AppDelegate.swift in Sources */,
 				7752EBF4237C604A00A7B982 /* ColorCyclingCircleView.swift in Sources */,
 				778B8010237D7E6E00DD97AE /* AnimatableDataView.swift in Sources */,
