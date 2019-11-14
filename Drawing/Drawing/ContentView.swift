@@ -29,6 +29,7 @@ struct ContentView: View {
                     NavigationLink("Special effects", destination: SpecialEffectsView())
                     NavigationLink("Animatable data Trapezoid", destination: AnimatableDataView())
                     NavigationLink("Animatable pair checkerboard", destination: AnimatablePairView())
+                    NavigationLink("Spirograph", destination: SpirographView())
                 }
             }
             .navigationBarTitle("Drawings")

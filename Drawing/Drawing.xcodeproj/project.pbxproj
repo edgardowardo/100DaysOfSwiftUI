@@ -22,6 +22,7 @@
 		7752EBF6237D5E0200A7B982 /* SpecialEffectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */; };
 		778B8010237D7E6E00DD97AE /* AnimatableDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */; };
 		778B8012237D7FC500DD97AE /* AnimatablePairView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B8011237D7FC500DD97AE /* AnimatablePairView.swift */; };
+		778B8014237D80F500DD97AE /* SpirographView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778B8013237D80F500DD97AE /* SpirographView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialEffectsView.swift; sourceTree = "<group>"; };
 		778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableDataView.swift; sourceTree = "<group>"; };
 		778B8011237D7FC500DD97AE /* AnimatablePairView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatablePairView.swift; sourceTree = "<group>"; };
+		778B8013237D80F500DD97AE /* SpirographView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				7752EBF5237D5E0200A7B982 /* SpecialEffectsView.swift */,
 				778B800F237D7E6E00DD97AE /* AnimatableDataView.swift */,
 				778B8011237D7FC500DD97AE /* AnimatablePairView.swift */,
+				778B8013237D80F500DD97AE /* SpirographView.swift */,
 			);
 			path = Drawing;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				7752EBF2237C5E1400A7B982 /* ImagePaintView.swift in Sources */,
 				7752EBEC237C541F00A7B982 /* ArcView.swift in Sources */,
 				7752EBD8237C4D7D00A7B982 /* SceneDelegate.swift in Sources */,
+				778B8014237D80F500DD97AE /* SpirographView.swift in Sources */,
 				7752EBEA237C4F2400A7B982 /* TriangleView.swift in Sources */,
 				7752EBDA237C4D7D00A7B982 /* ContentView.swift in Sources */,
 				7752EBF6237D5E0200A7B982 /* SpecialEffectsView.swift in Sources */,
