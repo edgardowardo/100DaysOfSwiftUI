@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Order: ObservableObject, Codable {
+class OrderContainer: ObservableObject, Codable {
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
 
     @Published var type = 0
@@ -78,7 +78,7 @@ class Order: ObservableObject, Codable {
     }
 }
 
-extension Order {
+extension OrderContainer {
     
     var cost: Double {
         // $2 per cake

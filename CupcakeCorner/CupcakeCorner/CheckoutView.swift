@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CheckoutView: View {
      
-    @ObservedObject var order: Order
+    @ObservedObject var order: OrderContainer
     @State private var alertTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
@@ -62,9 +62,9 @@ struct CheckoutView: View {
                 return
             }
             
-            if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
+            if let decodedOrder = try? JSONDecoder().decode(OrderContainer.self, from: data) {
                 self.alertTitle = "Thank you!"
-                self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
+                self.confirmationMessage = "Your order for \(decodedOrder.quantity)x \(OrderContainer.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
                 self.showingConfirmation = true
             } else {
                 print("Invalid response from server")
@@ -75,6 +75,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(order: Order())
+        CheckoutView(order: OrderContainer())
     }
 }
