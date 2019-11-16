@@ -16,35 +16,35 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Select your cake type", selection: $order.type) {
-                        ForEach(0..<OrderContainer.types.count, id: \.self) {
-                            Text(OrderContainer.types[$0])
+                    Picker("Select your cake type", selection: $order.order.type) {
+                        ForEach(0..<Order.types.count, id: \.self) {
+                            Text(Order.types[$0])
                         }
                     }
 
-                    Stepper(value: $order.quantity, in: 3...20) {
-                        Text("Number of cakes: \(order.quantity)")
+                    Stepper(value: $order.order.quantity, in: 3...20) {
+                        Text("Number of cakes: \(order.order.quantity)")
                     }
                 }
                 
                 Section {
-                    Toggle(isOn: $order.specialRequestEnabled.animation()) {
+                    Toggle(isOn: $order.order.specialRequestEnabled.animation()) {
                         Text("Any special requests?")
                     }
 
-                    if order.specialRequestEnabled {
-                        Toggle(isOn: $order.extraFrosting) {
+                    if order.order.specialRequestEnabled {
+                        Toggle(isOn: $order.order.extraFrosting) {
                             Text("Add extra frosting")
                         }
 
-                        Toggle(isOn: $order.addSprinkles) {
+                        Toggle(isOn: $order.order.addSprinkles) {
                             Text("Add extra sprinkles")
                         }
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: AddressView(order: order)) {
+                    NavigationLink(destination: AddressView(container: order)) {
                         Text("Delivery details")
                     }
                 }
