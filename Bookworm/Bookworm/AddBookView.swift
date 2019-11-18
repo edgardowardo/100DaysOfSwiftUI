@@ -18,6 +18,7 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = ""
     @State private var review = ""
+    @State private var publishDate = defaultPublishDate
     
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller", "Technology"]
     
@@ -27,6 +28,9 @@ struct AddBookView: View {
                 Section {
                     TextField("Name of book", text: $title)
                     TextField("Author's name", text: $author)
+                    DatePicker("Publish date", selection: $publishDate, displayedComponents: .date)
+                        .labelsHidden()
+                        .datePickerStyle(WheelDatePickerStyle())
 
                     Picker("Genre", selection: $genre) {
                         ForEach(genres, id: \.self) {
@@ -48,6 +52,7 @@ struct AddBookView: View {
                         newBook.rating = Int16(self.rating)
                         newBook.genre = self.genre
                         newBook.review = self.review
+                        newBook.publishDate = self.publishDate
 
                         try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()
@@ -61,6 +66,16 @@ struct AddBookView: View {
     
     var isSavable: Bool {
         !title.isEmpty && !author.isEmpty && !genre.isEmpty
+    }
+    
+    static var defaultPublishDate: Date {
+        var components = DateComponents()
+        components.year = 1900
+        components.month = 1
+        components.day = 1
+        components.hour = 0
+        components.minute = 0
+        return Calendar.current.date(from: components) ?? Date()
     }
 }
 

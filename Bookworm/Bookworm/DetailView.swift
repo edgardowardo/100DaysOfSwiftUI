@@ -9,6 +9,14 @@
 import SwiftUI
 import CoreData
 
+extension Book {
+    var displayedPublishDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: publishDate ?? Date())
+    }
+}
+
 struct DetailView: View {
     
     let book: Book
@@ -37,6 +45,9 @@ struct DetailView: View {
                 Text(self.book.author ?? "Unknown author")
                     .font(.title)
                     .foregroundColor(.secondary)
+                
+                Text(self.book.displayedPublishDate)
+                    .font(.body)
 
                 Text(self.book.review ?? "No review")
                     .padding()
