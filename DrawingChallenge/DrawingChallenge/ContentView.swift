@@ -27,9 +27,17 @@ struct Arrow: Shape {
 }
 
 struct ContentView: View {
+    
+    @State var lineWidth: CGFloat = 5
+    
     var body: some View {
         Arrow()
-            .stroke(lineWidth: 0.5)
+            .stroke(lineWidth: lineWidth)
+            .onTapGesture {
+                withAnimation {
+                    self.lineWidth *= 1.5
+                }
+        }
     }
 }
 
