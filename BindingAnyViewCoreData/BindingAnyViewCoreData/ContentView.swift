@@ -36,6 +36,7 @@ struct ContentView: View {
             VStack {
                 PushButton(title: "Remember Me", isOn: $rememberMe)
                 Text(rememberMe ? "On" : "Off")
+                NavigationLink("Any view", destination: AnyViewDemoView())
             }
         }.navigationBarTitle("Binding, AnyView, CoreData")
     }
