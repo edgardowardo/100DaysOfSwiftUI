@@ -31,12 +31,14 @@ struct ContentView: View {
     @State var lineWidth: CGFloat = 5
     
     var body: some View {
-        Arrow()
-            .stroke(lineWidth: lineWidth)
-            .onTapGesture {
-                withAnimation {
-                    self.lineWidth *= 1.5
-                }
+        NavigationView {
+            Arrow()
+                .stroke(lineWidth: lineWidth)
+                .onTapGesture {
+                    withAnimation {
+                        self.lineWidth *= 1.5
+                    }
+            }
         }
     }
 }
