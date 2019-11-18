@@ -12,5 +12,6 @@ SwiftUI exercises, notes and projects facilitated by @twostraws #100DaysOfSwiftU
 ![Moonshot](images/moonshot.gif)
 ![Drawing](images/drawingChallenge.gif)
 ![Cupcake(URLSession)](images/cupcake.gif)
+![Bookworm](images/bookworm.gif)
 
 
