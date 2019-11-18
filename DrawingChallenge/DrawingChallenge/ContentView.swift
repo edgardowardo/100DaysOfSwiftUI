@@ -15,13 +15,13 @@ struct Arrow: Shape {
         let leftStem = (rect.maxX - stemWidth) / 2
         path.move(to: .init(x: rect.midX, y: 0))
         path.addLine(to: .init(x: 0, y: rect.midY / 2))
+        path.addLine(to: .init(x: leftStem, y: rect.midY / 2))
+        path.addLine(to: .init(x: leftStem, y: rect.maxY))
+        path.addLine(to: .init(x: leftStem + stemWidth, y: rect.maxY))
+        path.addLine(to: .init(x: leftStem + stemWidth, y: rect.midY / 2))
         path.addLine(to: .init(x: rect.maxX, y: rect.midY / 2))
         path.closeSubpath()
-        path.move(to: .init(x: leftStem, y: rect.midY / 2))
-        path.addLine(to: .init(x: leftStem + stemWidth, y: rect.midY / 2))
-        path.addLine(to: .init(x: leftStem + stemWidth, y: rect.maxY))
-        path.addLine(to: .init(x: leftStem, y: rect.maxY))
-        path.closeSubpath()
+        
         return path
     }
 }
@@ -29,7 +29,7 @@ struct Arrow: Shape {
 struct ContentView: View {
     var body: some View {
         Arrow()
-            .stroke()
+            .stroke(lineWidth: 0.5)
     }
 }
 
