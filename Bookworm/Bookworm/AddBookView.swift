@@ -53,9 +53,14 @@ struct AddBookView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
+                .disabled(isSavable == false)
             }
             .navigationBarTitle("Add Book")
         }
+    }
+    
+    var isSavable: Bool {
+        !title.isEmpty && !author.isEmpty && !genre.isEmpty
     }
 }
 
