@@ -27,8 +27,6 @@ struct ContentView: View {
                             .font(.largeTitle)
 
                         VStack(alignment: .leading) {
-//                            Text("\(Int(book.rating))")
-//                                .font(.headline)
                             Text(book.title ?? "Unknown Title")
                                 .font(.headline)
                             Text(book.author ?? "Unknown Author")
