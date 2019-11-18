@@ -32,12 +32,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            Arrow()
-                .stroke(lineWidth: lineWidth)
-                .onTapGesture {
-                    withAnimation {
-                        self.lineWidth *= 1.5
-                    }
+            VStack {
+                NavigationLink("ColorCyclingRetcangleView", destination: ColorCyclingRecangleView())
+                Arrow()
+                    .stroke(lineWidth: lineWidth)
+                    .onTapGesture {
+                        withAnimation {
+                            self.lineWidth *= 1.5
+                        }
+                }
+
             }
         }
     }

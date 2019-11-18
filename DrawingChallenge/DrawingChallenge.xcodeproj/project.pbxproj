@@ -13,6 +13,7 @@
 		77B97B012380AEEE00491B0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B97B002380AEEE00491B0F /* Assets.xcassets */; };
 		77B97B042380AEEE00491B0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B97B032380AEEE00491B0F /* Preview Assets.xcassets */; };
 		77B97B072380AEEE00491B0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B97B052380AEEE00491B0F /* LaunchScreen.storyboard */; };
+		77B97B0F2382B10B00491B0F /* ColorCyclingRecangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B97B0E2382B10B00491B0F /* ColorCyclingRecangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		77B97B032380AEEE00491B0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77B97B062380AEEE00491B0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77B97B082380AEEE00491B0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77B97B0E2382B10B00491B0F /* ColorCyclingRecangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCyclingRecangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				77B97B052380AEEE00491B0F /* LaunchScreen.storyboard */,
 				77B97B082380AEEE00491B0F /* Info.plist */,
 				77B97B022380AEEE00491B0F /* Preview Content */,
+				77B97B0E2382B10B00491B0F /* ColorCyclingRecangleView.swift */,
 			);
 			path = DrawingChallenge;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B97AFB2380AEED00491B0F /* AppDelegate.swift in Sources */,
+				77B97B0F2382B10B00491B0F /* ColorCyclingRecangleView.swift in Sources */,
 				77B97AFD2380AEED00491B0F /* SceneDelegate.swift in Sources */,
 				77B97AFF2380AEED00491B0F /* ContentView.swift in Sources */,
 			);
