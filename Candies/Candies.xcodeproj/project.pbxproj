@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77404A9F2385898900167830 /* Candy+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77404A9B2385898900167830 /* Candy+CoreDataClass.swift */; };
+		77404AA02385898900167830 /* Candy+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77404A9C2385898900167830 /* Candy+CoreDataProperties.swift */; };
+		77404AA12385898900167830 /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77404A9D2385898900167830 /* Country+CoreDataClass.swift */; };
+		77404AA22385898900167830 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77404A9E2385898900167830 /* Country+CoreDataProperties.swift */; };
 		77835E862385881E00D29C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E852385881E00D29C52 /* AppDelegate.swift */; };
 		77835E882385881E00D29C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E872385881E00D29C52 /* SceneDelegate.swift */; };
 		77835E8B2385881E00D29C52 /* Candies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77835E892385881E00D29C52 /* Candies.xcdatamodeld */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77404A9B2385898900167830 /* Candy+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		77404A9C2385898900167830 /* Candy+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		77404A9D2385898900167830 /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		77404A9E2385898900167830 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		77835E822385881E00D29C52 /* Candies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Candies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77835E852385881E00D29C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77835E872385881E00D29C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +66,10 @@
 		77835E842385881E00D29C52 /* Candies */ = {
 			isa = PBXGroup;
 			children = (
+				77404A9B2385898900167830 /* Candy+CoreDataClass.swift */,
+				77404A9C2385898900167830 /* Candy+CoreDataProperties.swift */,
+				77404A9D2385898900167830 /* Country+CoreDataClass.swift */,
+				77404A9E2385898900167830 /* Country+CoreDataProperties.swift */,
 				77835E852385881E00D29C52 /* AppDelegate.swift */,
 				77835E872385881E00D29C52 /* SceneDelegate.swift */,
 				77835E8C2385881E00D29C52 /* ContentView.swift */,
@@ -150,7 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77835E862385881E00D29C52 /* AppDelegate.swift in Sources */,
+				77404A9F2385898900167830 /* Candy+CoreDataClass.swift in Sources */,
 				77835E882385881E00D29C52 /* SceneDelegate.swift in Sources */,
+				77404AA02385898900167830 /* Candy+CoreDataProperties.swift in Sources */,
+				77404AA22385898900167830 /* Country+CoreDataProperties.swift in Sources */,
+				77404AA12385898900167830 /* Country+CoreDataClass.swift in Sources */,
 				77835E8D2385881E00D29C52 /* ContentView.swift in Sources */,
 				77835E8B2385881E00D29C52 /* Candies.xcdatamodeld in Sources */,
 			);
