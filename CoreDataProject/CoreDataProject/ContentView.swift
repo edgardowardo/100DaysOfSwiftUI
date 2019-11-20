@@ -10,7 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            List {
+                NavigationLink("Singers Specific Predicate", destination: SingersView())
+            }
+            .navigationBarTitle("Day 58")
+        }
     }
 }
 
