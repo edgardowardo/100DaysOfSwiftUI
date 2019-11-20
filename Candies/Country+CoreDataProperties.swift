@@ -38,4 +38,19 @@ extension Country {
     @objc(removeCandy:)
     @NSManaged public func removeFromCandy(_ values: NSSet)
 
+    public var wrappedShortName: String {
+        shortName ?? "Unknown Country"
+    }
+
+    public var wrappedFullName: String {
+        fullName ?? "Unknown Country"
+    }
+    
+    public var candyArray: [Candy] {
+        let set = candy as? Set<Candy> ?? []
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
+        }
+    }
+    
 }
