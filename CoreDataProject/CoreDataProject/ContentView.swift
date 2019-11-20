@@ -13,6 +13,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink("Singers Specific Predicate", destination: SingersView())
+                NavigationLink("Candies by Country", destination: CandiesByCountryView())
             }
             .navigationBarTitle("Day 58")
         }

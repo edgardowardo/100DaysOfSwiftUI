@@ -21,6 +21,7 @@
 		77835E7223857D2600D29C52 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E6E23857D2600D29C52 /* Country+CoreDataProperties.swift */; };
 		77835E7423857EDA00D29C52 /* Country+Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E7323857EDA00D29C52 /* Country+Wrappers.swift */; };
 		77835E7623857F0100D29C52 /* Candy+Wrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E7523857F0100D29C52 /* Candy+Wrappers.swift */; };
+		77835E7823857F9000D29C52 /* CandiesByCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E7723857F9000D29C52 /* CandiesByCountryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		77835E6E23857D2600D29C52 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		77835E7323857EDA00D29C52 /* Country+Wrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+Wrappers.swift"; sourceTree = "<group>"; };
 		77835E7523857F0100D29C52 /* Candy+Wrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candy+Wrappers.swift"; sourceTree = "<group>"; };
+		77835E7723857F9000D29C52 /* CandiesByCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandiesByCountryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				77835E5623855D9400D29C52 /* CoreDataProject.xcdatamodeld */,
 				77835E5D23855D9500D29C52 /* Preview Content */,
 				77835E6923855E1C00D29C52 /* SingersView.swift */,
+				77835E7723857F9000D29C52 /* CandiesByCountryView.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				77835E5A23855D9400D29C52 /* ContentView.swift in Sources */,
 				77835E7423857EDA00D29C52 /* Country+Wrappers.swift in Sources */,
 				77835E7023857D2600D29C52 /* Candy+CoreDataProperties.swift in Sources */,
+				77835E7823857F9000D29C52 /* CandiesByCountryView.swift in Sources */,
 				77835E5823855D9400D29C52 /* CoreDataProject.xcdatamodeld in Sources */,
 				77835E7123857D2600D29C52 /* Country+CoreDataClass.swift in Sources */,
 				77835E7623857F0100D29C52 /* Candy+Wrappers.swift in Sources */,

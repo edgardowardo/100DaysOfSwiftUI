@@ -27,6 +27,6 @@
     <elements>
         <element name="Singer" positionX="-54" positionY="-9" width="128" height="73"/>
         <element name="Candy" positionX="-64.5703125" positionY="-95.8359375" width="128" height="73"/>
-        <element name="Country" positionX="-36" positionY="-9" width="128" height="88"/>
+        <element name="Country" positionX="193.484375" positionY="-111.44921875" width="128" height="88"/>
     </elements>
 </model>
