@@ -24,6 +24,7 @@ struct DetailView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     @State private var showingDeleteAlert = false
+    @State private var showingEditMode = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -54,22 +55,36 @@ struct DetailView: View {
 
                 RatingView(rating: .constant(Int(self.book.rating)))
                     .font(.largeTitle)
+                
+//                NavigationLink("Edit", destination: EditBookView(viewModel: EditBookViewModel(book: self.book)))
+//                    .padding()
 
                 Spacer()
                 
             }
         }
         .navigationBarTitle(Text(book.title ?? "Unknown Book"), displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            self.showingDeleteAlert = true
-        }) {
-            Image(systemName: "trash")
-        })
+        .navigationBarItems(trailing: HStack(spacing: 10) {
+                Button(action: {
+                    self.showingEditMode = true
+                }) {
+                    Image(systemName: "square.and.pencil")
+                }
+                Button(action: {
+                    self.showingDeleteAlert = true
+                }) {
+                    Image(systemName: "trash")
+                }
+            }
+        )
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete book"), message: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")) {
                     self.deleteBook()
                 }, secondaryButton: .cancel()
             )
+        }
+        .sheet(isPresented: $showingEditMode) {
+            EditBookView(viewModel: EditBookViewModel(book: self.book)).environment(\.managedObjectContext, self.moc)
         }
     }
     
