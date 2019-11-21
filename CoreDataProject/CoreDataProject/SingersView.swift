@@ -29,6 +29,7 @@ struct FilteredListView: View {
 }
 
 struct FilteredList<T: NSManagedObject, Content: View>: View {
+        
     var fetchRequest: FetchRequest<T>
     var objects: FetchedResults<T> { fetchRequest.wrappedValue }
 
@@ -41,10 +42,37 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         }
     }
 
-    init(filterKey: String, filterValue: String, sortDescriptors: [NSSortDescriptor], @ViewBuilder content: @escaping (T) -> Content) {
+    init(filterKey: String,
+         filterValue: String,
+         filterOperator: NSPredicate.Operator,
+         sortDescriptors: [NSSortDescriptor],
+         @ViewBuilder content: @escaping (T) -> Content) {
                 
-        fetchRequest = FetchRequest<T>(entity: T.entity(), sortDescriptors: sortDescriptors, predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
+        fetchRequest = FetchRequest<T>(entity: T.entity(),
+                                       sortDescriptors: sortDescriptors,
+                                       predicate: (filterOperator == .all) ? nil : NSPredicate(format: "%K \(filterOperator.rawValue) %@",
+                                        filterKey, filterValue))
         self.content = content
+    }
+}
+
+extension NSPredicate {
+    enum Operator: String, CaseIterable {
+        case all = "ALL"
+        case begins = "BEGINSWITH"
+        case contains = "CONTAINS"
+        case equal = "=="
+    }
+}
+
+extension NSPredicate.Operator {
+    var displayedString: String {
+        switch self {
+        case .all: return "All"
+        case .begins: return "Begins with"
+        case .contains: return "Containing"
+        case .equal: return "Equals"
+        }
     }
 }
 
@@ -61,7 +89,7 @@ struct SingersView: View {
             }
             
             Section(header: Text("Filtered Generics")) {
-                FilteredList(filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: []) { (singer: Singer) in
+                FilteredList(filterKey: "lastName", filterValue: lastNameFilter, filterOperator: .begins, sortDescriptors: []) { (singer: Singer) in
                     Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
                 }
             }

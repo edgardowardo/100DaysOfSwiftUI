@@ -8,14 +8,18 @@
 
 import SwiftUI
 
+
 struct ChallengeView: View {
     
     @Environment(\.managedObjectContext) var moc
-    @State var lastNameFilter = "S"
 
     @State var indexOfSort = 0
     @State var isAscending = true
     let sortOrders = [("First name", \Singer.firstName), ("Last name", \Singer.lastName)]
+
+    @State var indexOfFilter = 0
+    @State var filterValue = "S"
+    let filters = NSPredicate.Operator.allCases
       
     var body: some View {
         Form {
@@ -33,27 +37,29 @@ struct ChallengeView: View {
                 }
             }
             
+            Section(header: Text("Filter")) {
+                Picker("Filter by", selection: $indexOfFilter) {
+                    ForEach(0..<filters.count) {
+                        Text("\(self.filters[$0].displayedString)")
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                TextField("Value", text: $filterValue)
+            }
+            
             Section(header: Text("Singers")) {
                 FilteredList(filterKey: "lastName",
-                             filterValue: lastNameFilter,
+                             filterValue: filterValue,
+                             filterOperator: filters[indexOfFilter],
                              sortDescriptors: [ NSSortDescriptor(keyPath: sortOrders[indexOfSort].1,
                                                                  ascending: isAscending)])
                 { (singer: Singer) in
                     Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
                 }
             }
-
-            Section(header: Text("Options")) {
-                Button("Show A") {
-                    self.lastNameFilter = "A"
-                }
-                
-                Button("Show S") {
-                    self.lastNameFilter = "S"
-                }
-            }
         }
-        .navigationBarTitle("Singers Predicate", displayMode: .inline)
+        .navigationBarTitle("Day 59 Challenge", displayMode: .inline)
     }
 }
 
