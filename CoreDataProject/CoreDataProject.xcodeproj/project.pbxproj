@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77404AA42386A95D00167830 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77404AA32386A95D00167830 /* ChallengeView.swift */; };
 		77835E5323855D9400D29C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E5223855D9400D29C52 /* AppDelegate.swift */; };
 		77835E5523855D9400D29C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77835E5423855D9400D29C52 /* SceneDelegate.swift */; };
 		77835E5823855D9400D29C52 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77835E5623855D9400D29C52 /* CoreDataProject.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77404AA32386A95D00167830 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		77835E4F23855D9400D29C52 /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77835E5223855D9400D29C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77835E5423855D9400D29C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				77835E5D23855D9500D29C52 /* Preview Content */,
 				77835E6923855E1C00D29C52 /* SingersView.swift */,
 				77835E7723857F9000D29C52 /* CandiesByCountryView.swift */,
+				77404AA32386A95D00167830 /* ChallengeView.swift */,
 			);
 			path = CoreDataProject;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				77835E7823857F9000D29C52 /* CandiesByCountryView.swift in Sources */,
 				77835E5823855D9400D29C52 /* CoreDataProject.xcdatamodeld in Sources */,
 				77835E7123857D2600D29C52 /* Country+CoreDataClass.swift in Sources */,
+				77404AA42386A95D00167830 /* ChallengeView.swift in Sources */,
 				77835E7623857F0100D29C52 /* Candy+Wrappers.swift in Sources */,
 				77835E6F23857D2600D29C52 /* Candy+CoreDataClass.swift in Sources */,
 				77835E7223857D2600D29C52 /* Country+CoreDataProperties.swift in Sources */,

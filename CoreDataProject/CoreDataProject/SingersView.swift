@@ -41,8 +41,9 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         }
     }
 
-    init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
-        fetchRequest = FetchRequest<T>(entity: T.entity(), sortDescriptors: [], predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
+    init(filterKey: String, filterValue: String, sortDescriptors: [NSSortDescriptor], @ViewBuilder content: @escaping (T) -> Content) {
+                
+        fetchRequest = FetchRequest<T>(entity: T.entity(), sortDescriptors: sortDescriptors, predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
         self.content = content
     }
 }
@@ -60,24 +61,36 @@ struct SingersView: View {
             }
             
             Section(header: Text("Filtered Generics")) {
-                FilteredList(filterKey: "lastName", filterValue: lastNameFilter) { (singer: Singer) in
+                FilteredList(filterKey: "lastName", filterValue: lastNameFilter, sortDescriptors: []) { (singer: Singer) in
                     Text("\(singer.wrappedFirstName) \(singer.wrappedLastName)")
                 }
             }
 
             Section(header: Text("Options")) {
                 Button("Add Examples") {
+                    let appleSisters = Singer(context: self.moc)
+                    appleSisters.firstName = "Apple"
+                    appleSisters.lastName = "Sisters"
+                    
+                    let samsmith = Singer(context: self.moc)
+                    samsmith.firstName = "Sam"
+                    samsmith.lastName = "Smith"
+                    
                     let taylor = Singer(context: self.moc)
                     taylor.firstName = "Taylor"
                     taylor.lastName = "Swift"
-                    
+
                     let ed = Singer(context: self.moc)
                     ed.firstName = "Ed"
                     ed.lastName = "Sheeran"
-                    
+
                     let adele = Singer(context: self.moc)
                     adele.firstName = "Adele"
                     adele.lastName = "Adkins"
+                    
+                    let abba = Singer(context: self.moc)
+                    abba.firstName = "Abba"
+                    abba.lastName = "Abba"
                     
                     try? self.moc.save()
                 }
