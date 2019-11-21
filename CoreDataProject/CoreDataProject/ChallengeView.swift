@@ -15,8 +15,10 @@ struct ChallengeView: View {
 
     @State var indexOfSort = 0
     @State var isAscending = true
-    let sortOrders = [("First name", \Singer.firstName), ("Last name", \Singer.lastName)]
+    let sortOrders = [("First name", \Singer.firstName, "firstName"),
+                      ("Last name", \Singer.lastName, "lastName")]
 
+    @State var indexOfFilterKey = 1
     @State var indexOfFilter = 0
     @State var filterValue = "S"
     let filters = NSPredicate.Operator.allCases
@@ -37,7 +39,14 @@ struct ChallengeView: View {
                 }
             }
             
-            Section(header: Text("Filter")) {
+            Section(header: Text("Filter by")) {
+                Picker("Filter key", selection: $indexOfFilterKey) {
+                    ForEach(0..<sortOrders.count) {
+                        Text("\(self.sortOrders[$0].0)")
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
                 Picker("Filter by", selection: $indexOfFilter) {
                     ForEach(0..<filters.count) {
                         Text("\(self.filters[$0].displayedString)")
@@ -49,7 +58,7 @@ struct ChallengeView: View {
             }
             
             Section(header: Text("Singers")) {
-                FilteredList(filterKey: "lastName",
+                FilteredList(filterKey: sortOrders[indexOfFilterKey].2,
                              filterValue: filterValue,
                              filterOperator: filters[indexOfFilter],
                              sortDescriptors: [ NSSortDescriptor(keyPath: sortOrders[indexOfSort].1,

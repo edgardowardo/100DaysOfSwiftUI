@@ -97,7 +97,7 @@ struct SingersView: View {
             Section(header: Text("Options")) {
                 Button("Add Examples") {
                     let appleSisters = Singer(context: self.moc)
-                    appleSisters.firstName = "Apple"
+                    appleSisters.firstName = "Appleton"
                     appleSisters.lastName = "Sisters"
                     
                     let samsmith = Singer(context: self.moc)
