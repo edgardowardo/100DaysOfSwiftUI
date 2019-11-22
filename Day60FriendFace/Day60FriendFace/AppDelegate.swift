@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  CoreDataProject
+//  Day60FriendFace
 //
-//  Created by EDGARDO AGNO on 20/11/2019.
+//  Created by EDGARDO AGNO on 22/11/2019.
 //  Copyright © 2019 EDGARDO AGNO. All rights reserved.
 //
 
@@ -16,12 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-//        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-//        let singer1 = Singer(context: moc)
-//        singer1.firstName = "Mariah"
-//        singer1.lastName = "Carrey"
-//        try? moc.save()
         return true
     }
 
@@ -48,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "CoreDataProject")
+        let container = NSPersistentContainer(name: "Day60FriendFace")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
