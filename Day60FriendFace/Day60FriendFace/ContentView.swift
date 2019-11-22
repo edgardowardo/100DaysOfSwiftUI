@@ -34,14 +34,17 @@ struct ContentView: View {
     @State var users = [User]()
     
     var body: some View {
-        List(users) { item in
-              VStack(alignment: .leading) {
-                  Text(item.name)
-                      .font(.headline)
-                  Text(item.company)
-              }
-          }
-        .onAppear(perform: loadData)
+        NavigationView {
+            List(users) { item in
+                VStack(alignment: .leading) {
+                    Text(item.name)
+                        .font(.headline)
+                    Text(item.company)
+                }
+            }
+            .onAppear(perform: loadData)
+            .navigationBarTitle("Friendly Faces")
+        }
     }
 }
 
