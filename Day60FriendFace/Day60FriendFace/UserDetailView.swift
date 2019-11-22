@@ -14,9 +14,26 @@ struct UserDetailView: View {
     let user: User
     
     var body: some View {
-        NavigationView {
-            Text("\(user.wrappedName)")
-                .font(.largeTitle)
+        GeometryReader { geo in
+            ScrollView(.vertical) {
+                VStack(spacing: 20) {
+                    InitialsView(name: self.user.wrappedName)
+                        .frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
+                    VStack {
+                        Text("\(self.user.wrappedName)")
+                            .font(.largeTitle)
+                        Text(" \(self.user.wrappedEmail), \(self.user.wrappedCompany)")
+                        Text(self.user.wrappedAddress)
+                    }
+                    .font(.caption)
+                    
+                    Text(self.user.wrappedAbout)
+                        .layoutPriority(1)
+                    
+                    Spacer()
+                }
+                .padding()
+            }
         }
     }
 }
@@ -29,6 +46,10 @@ struct UserDetailView_Previews: PreviewProvider {
         user.id = "1"
         user.name = "John Appleseed"
         user.age = 21
+        user.company = "Apple"
+        user.email = "johnappleseed@apple.com"
+        user.address = "907 Nelson Street, Cotopaxi, South Dakota, 5913"
+        user.about = "Occaecat consequat elit aliquip magna laboris dolore laboris sunt officia adipisicing reprehenderit sunt. Do in proident consectetur labore. Laboris pariatur quis incididunt nostrud labore ad cillum veniam ipsum ullamco. Dolore laborum commodo veniam nisi. Eu ullamco cillum ex nostrud fugiat eu consequat enim cupidatat. Non incididunt fugiat cupidatat reprehenderit nostrud eiusmod eu sit minim do amet qui cupidatat. Elit aliquip nisi ea veniam proident dolore exercitation irure est deserunt.\r\n"
         return UserDetailView(user: user)
     }
 }

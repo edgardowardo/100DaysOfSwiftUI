@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770F62122388261C00F82C7A /* InitialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770F62112388261C00F82C7A /* InitialsView.swift */; };
 		7762A85C238808E0007A5D64 /* FilteredListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762A85B238808E0007A5D64 /* FilteredListView.swift */; };
 		7762A85E238816D3007A5D64 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7762A85D238816D3007A5D64 /* UserDetailView.swift */; };
 		77A10D012387EEA300E59C71 /* friendface.json in Resources */ = {isa = PBXBuildFile; fileRef = 77A10D002387EEA300E59C71 /* friendface.json */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770F62112388261C00F82C7A /* InitialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialsView.swift; sourceTree = "<group>"; };
 		7762A85B238808E0007A5D64 /* FilteredListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredListView.swift; sourceTree = "<group>"; };
 		7762A85D238816D3007A5D64 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		77A10D002387EEA300E59C71 /* friendface.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friendface.json; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				77A10D042387FF5B00E59C71 /* User.swift */,
 				7762A85B238808E0007A5D64 /* FilteredListView.swift */,
 				7762A85D238816D3007A5D64 /* UserDetailView.swift */,
+				770F62112388261C00F82C7A /* InitialsView.swift */,
 			);
 			path = Day60FriendFace;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				77B62F622387EE610020FB92 /* ContentView.swift in Sources */,
 				77A10D052387FF5B00E59C71 /* User.swift in Sources */,
 				7762A85E238816D3007A5D64 /* UserDetailView.swift in Sources */,
+				770F62122388261C00F82C7A /* InitialsView.swift in Sources */,
 				77B62F602387EE610020FB92 /* Day60FriendFace.xcdatamodeld in Sources */,
 				7762A85C238808E0007A5D64 /* FilteredListView.swift in Sources */,
 			);
