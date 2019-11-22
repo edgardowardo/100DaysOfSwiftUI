@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var users = [UserJSON]()
+        
+    @Environment(\.managedObjectContext) var moc
     @State var showActive = true
     @State var showFilters = false
     
@@ -23,11 +23,17 @@ struct ContentView: View {
                     }
                 }
                 Section {
-                    List(users) { item in
+                    FilteredListView(
+                        filterKey: "name",
+                        filterValue: "A",
+                        filterOperator: .all,
+                        sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
+                                                           ascending: true)])
+                    { (user: User) in
                         VStack(alignment: .leading) {
-                            Text(item.name)
+                            Text(user.wrappedName)
                                 .font(.headline)
-                            Text(item.company)
+                            Text(user.wrappedCompany)
                         }
                     }
                 }
@@ -46,32 +52,26 @@ struct ContentView: View {
 extension ContentView {
     
     func loadData() {
-           guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
-               print("Invalid URL")
-               return
-           }
-           
-           let request = URLRequest(url: url)
-           
-           URLSession.shared.dataTask(with: request) { data, response, error in
-               if let data = data {
-                   if let decodedResponse = try? JSONDecoder().decode([UserJSON].self, from: data) {
-                       // we have good data – go back to the main thread
-                       DispatchQueue.main.async {
-                           // update our UI
-                           self.users = decodedResponse
-                       }
+        guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
+            print("Invalid URL")
+            return
+        }
 
-                       // everything is good, so we can exit
-                       return
-                   }
-               }
-
-               // if we're still here it means there was a problem
-               print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
-               
-           }.resume()
-       }
+        let request = URLRequest(url: url)
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                if let decodedResponse = try? JSONDecoder().decode([UserJSON].self, from: data) {
+                    DispatchQueue.main.async {
+                        _ = decodedResponse.map{ $0.user(for: self.moc) }
+                        try? self.moc.save()
+                    }
+                    return
+                }
+            }
+            print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+        }.resume()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
