@@ -32,18 +32,34 @@ extension User {
 struct ContentView: View {
     
     @State var users = [User]()
+    @State var showActive = true
+    @State var showFilters = false
     
     var body: some View {
         NavigationView {
-            List(users) { item in
-                VStack(alignment: .leading) {
-                    Text(item.name)
-                        .font(.headline)
-                    Text(item.company)
+            Form {
+                if showFilters {
+                    Section(header: Text("Filters")) {
+                        Toggle("Show active", isOn: $showActive)
+                    }
+                }
+                Section {
+                    List(users) { item in
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.company)
+                        }
+                    }
                 }
             }
             .onAppear(perform: loadData)
             .navigationBarTitle("Friendly Faces")
+            .navigationBarItems(trailing: Button(action: {
+                self.showFilters.toggle()
+            }) {
+                Image(systemName: "line.horizontal.3.decrease.circle\(self.showFilters ? ".fill" : "")")
+            })
         }
     }
 }
