@@ -4,18 +4,15 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="friend" inverseEntity="User"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tag" inverseEntity="User"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="title"/>
+                <constraint value="userId"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -39,7 +36,7 @@
     </entity>
     <elements>
         <element name="Friend" positionX="-54" positionY="63" width="128" height="88"/>
-        <element name="Tag" positionX="-36" positionY="72" width="128" height="73"/>
+        <element name="Tag" positionX="-36" positionY="72" width="128" height="88"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>

@@ -31,9 +31,10 @@ extension UserJSON {
 }
 
 private extension String {
-    func tag(for context: NSManagedObjectContext) -> Tag {
+    func tag(for context: NSManagedObjectContext, in id: String) -> Tag {
         let tag = Tag(context: context)
         tag.title = self
+        tag.userId = id
         return tag
     }
 }
@@ -63,7 +64,7 @@ extension UserJSON {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         user.registered = dateFormatter.date(from: registered)
         
-        user.tag = NSSet(array: tags.map { $0.tag(for: context) })
+        user.tag = NSSet(array: tags.map { $0.tag(for: context, in: id) })
         user.friend = NSSet(array: friends.map { $0.friend(for: context) })
         return user
     }
