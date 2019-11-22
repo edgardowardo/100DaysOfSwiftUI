@@ -12,7 +12,13 @@ struct ContentView: View {
         
     @Environment(\.managedObjectContext) var moc
     @State var showActive = true
+
     @State var showFilters = false
+    @State var indexOfFilterKey = 1
+    @State var indexOfFilter = 0
+    @State var filterValue = ""
+    let filters = NSPredicate.Operator.allCases
+
     
     var body: some View {
         NavigationView {
@@ -20,13 +26,22 @@ struct ContentView: View {
                 if showFilters {
                     Section(header: Text("Filters")) {
                         Toggle("Show active", isOn: $showActive)
+                        
+                        Picker("Filter by", selection: $indexOfFilter) {
+                            ForEach(0..<filters.count) {
+                                Text("\(self.filters[$0].displayedString)")
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        
+                        TextField("Name filter", text: $filterValue)
                     }
                 }
                 Section {
                     FilteredListView(
                         filterKey: "name",
-                        filterValue: "A",
-                        filterOperator: .all,
+                        filterValue: filterValue,
+                        filterOperator: filters[indexOfFilter],
                         sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
                                                            ascending: true)])
                     { (user: User) in
