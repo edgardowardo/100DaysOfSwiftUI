@@ -51,9 +51,14 @@ struct ContentView: View {
     }
 }
 
+private let loadKey = "loadKey"
+
 extension ContentView {
     
     func loadData() {
+        guard UserDefaults.standard.string(forKey: loadKey) == nil
+            else { return }
+        
         guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
             print("Invalid URL")
             return
@@ -67,6 +72,8 @@ extension ContentView {
                     DispatchQueue.main.async {
                         _ = decodedResponse.map{ $0.user(for: self.moc) }
                         try? self.moc.save()
+                        
+                        UserDefaults.standard.set("loaded", forKey: loadKey)
                     }
                     return
                 }

@@ -31,8 +31,22 @@ struct UserDetailView: View {
                         .layoutPriority(1)
                     
                     TagsView(tags: self.user.tagArray.map { $0.wrappedTitle })
-                    
-                    Spacer()
+
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("\(self.user.friendArray.count) friends")
+                            
+                            ForEach(self.user.friendArray, id: \.self) { item in
+                                HStack {
+                                    InitialsView(name: item.wrappedName)
+                                        .frame(width: 40, height: 40)
+                                    Text(item.wrappedName)
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                    }                    
                 }
                 .padding()
             }

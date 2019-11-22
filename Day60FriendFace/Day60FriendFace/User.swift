@@ -101,8 +101,9 @@ extension User {
 
     public var friendArray: [Friend] {
         let set = friend as? Set<Friend> ?? []
-        return set.sorted {
+        let array = set.sorted {
             $0.wrappedName < $1.wrappedName
         }
+        return array
     }
 }
