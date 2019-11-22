@@ -4,6 +4,7 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="relatedUserId" optional="YES" attributeType="String"/>
+        <relationship name="friend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="relation" inverseEntity="User"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="friend" inverseEntity="User"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -34,6 +35,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend"/>
+        <relationship name="relation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="friend" inverseEntity="Friend"/>
         <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="user" inverseEntity="Tag"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -42,8 +44,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Friend" positionX="-54" positionY="63" width="128" height="103"/>
+        <element name="Friend" positionX="-54" positionY="63" width="128" height="118"/>
         <element name="Tag" positionX="-36" positionY="72" width="128" height="88"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="223"/>
     </elements>
 </model>

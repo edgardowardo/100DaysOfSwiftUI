@@ -21,7 +21,7 @@ struct InitialsView: View {
         GeometryReader { geo in
             ZStack {
                 Circle()
-                    .shadow(radius: 10)
+                    .shadow(radius: 20)
                     .foregroundColor(.gray)
                 Text(self.initials)
                     .font(.system(size: geo.size.height * 0.5))
