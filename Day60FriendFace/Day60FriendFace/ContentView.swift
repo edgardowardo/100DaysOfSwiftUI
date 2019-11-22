@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct User: Codable, Identifiable {
+struct UserJSON: Codable, Identifiable {
     let id: String
     let isActive: Bool
     let name: String
@@ -22,7 +22,7 @@ struct User: Codable, Identifiable {
     let friends: [Friend]
 }
 
-extension User {
+extension UserJSON {
     struct Friend: Codable {
         let id: String
         let name: String
@@ -31,7 +31,7 @@ extension User {
 
 struct ContentView: View {
     
-    @State var users = [User]()
+    @State var users = [UserJSON]()
     @State var showActive = true
     @State var showFilters = false
     
@@ -76,7 +76,7 @@ extension ContentView {
            
            URLSession.shared.dataTask(with: request) { data, response, error in
                if let data = data {
-                   if let decodedResponse = try? JSONDecoder().decode([User].self, from: data) {
+                   if let decodedResponse = try? JSONDecoder().decode([UserJSON].self, from: data) {
                        // we have good data – go back to the main thread
                        DispatchQueue.main.async {
                            // update our UI
