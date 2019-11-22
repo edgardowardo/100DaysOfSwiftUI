@@ -11,21 +11,26 @@ import SwiftUI
 struct ContentView: View {
         
     @Environment(\.managedObjectContext) var moc
-    @State var showActive = true
 
     @State var showFilters = false
-    @State var indexOfFilterKey = 1
-    @State var indexOfFilter = 0
     @State var filterValue = ""
     let filters = NSPredicate.Operator.allCases
+    @State var indexOfFilter = 0
+    let activeFilters = NSPredicate.FlagOperator.allCases
+    @State var indexOfActiveFilter = 0
 
-    
     var body: some View {
         NavigationView {
             Form {
                 if showFilters {
                     Section(header: Text("Filters")) {
-                        Toggle("Show active", isOn: $showActive)
+                        
+                        Picker("Active filter", selection: $indexOfActiveFilter) {
+                            ForEach(0..<activeFilters.count) {
+                                Text("\(self.activeFilters[$0].displayedString)")
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                         
                         Picker("Filter by", selection: $indexOfFilter) {
                             ForEach(0..<filters.count) {
@@ -34,7 +39,7 @@ struct ContentView: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
                         
-                        TextField("Name filter", text: $filterValue)
+                        TextField("Enter name to filter", text: $filterValue)
                     }
                 }
                 Section {
@@ -42,6 +47,8 @@ struct ContentView: View {
                         filterKey: "name",
                         filterValue: filterValue,
                         filterOperator: filters[indexOfFilter],
+                        flagKey: "isActive",
+                        flagOperator: activeFilters[indexOfActiveFilter],
                         sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
                                                            ascending: true)])
                     { (user: User) in

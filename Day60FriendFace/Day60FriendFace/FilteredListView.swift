@@ -21,18 +21,66 @@ struct FilteredListView<T: NSManagedObject, Content: View>: View {
             self.content(item)
         }
     }
+    
+    static private func predicateNamed(
+        _ filterKey: String,
+        _ filterValue: String,
+        _ filterOperator: NSPredicate.Operator) -> NSPredicate {
+        NSPredicate(format: "%K \(filterOperator.rawValue) %@", filterKey, filterValue)
+    }
+    
+    static private func predicateFlag(
+        _ flagKey: String,
+        _ flagOperator: NSPredicate.FlagOperator) -> NSPredicate {
+        let isActive = NSNumber( value: flagOperator == .all ? false : Bool.init(flagOperator.rawValue)! )
+        return NSPredicate(format: "%K == %@", "isActive", isActive)
+    }
 
     init(filterKey: String,
          filterValue: String,
          filterOperator: NSPredicate.Operator,
+         flagKey: String,
+         flagOperator: NSPredicate.FlagOperator,
          sortDescriptors: [NSSortDescriptor],
          @ViewBuilder content: @escaping (T) -> Content) {
                 
+        let predicate: NSPredicate?
+        
+        switch (filterOperator, flagOperator) {
+        case (.all, .all):
+            predicate = nil
+        case (_, .all):
+            predicate = Self.predicateNamed(filterKey, filterValue, filterOperator)
+        case (.all, _):
+            predicate = Self.predicateFlag(flagKey, flagOperator)
+        default:
+            let name = Self.predicateNamed(filterKey, filterValue, filterOperator)
+            let flag = Self.predicateFlag(flagKey, flagOperator)
+            predicate = NSCompoundPredicate.init(type: .and, subpredicates: [name, flag])
+        }
+        
         fetchRequest = FetchRequest<T>(entity: T.entity(),
                                        sortDescriptors: sortDescriptors,
-                                       predicate: (filterOperator == .all) ? nil : NSPredicate(format: "%K \(filterOperator.rawValue) %@",
-                                        filterKey, filterValue))
+                                       predicate: predicate)
         self.content = content
+    }
+}
+
+extension NSPredicate {
+    enum FlagOperator: String, CaseIterable {
+        case all = "All"
+        case `true` = "true"
+        case `false` = "false"
+    }
+}
+
+extension NSPredicate.FlagOperator {
+    var displayedString: String {
+        switch self {
+        case .all: return "All"
+        case .true: return "Active"
+        case .false: return "Inactive"
+        }
     }
 }
 
