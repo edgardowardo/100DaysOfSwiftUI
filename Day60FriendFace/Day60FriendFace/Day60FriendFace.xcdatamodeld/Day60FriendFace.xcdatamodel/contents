@@ -12,6 +12,7 @@
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tag" inverseEntity="User"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="title"/>
@@ -29,7 +30,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="registered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="user" inverseEntity="Friend"/>
-        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag"/>
+        <relationship name="tag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="user" inverseEntity="Tag"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -37,8 +38,8 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="Friend" positionX="-54" positionY="63" width="128" height="88"/>
-        <element name="Tag" positionX="-36" positionY="72" width="128" height="58"/>
+        <element name="Tag" positionX="-36" positionY="72" width="128" height="73"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>
