@@ -30,10 +30,12 @@ struct ContentView: View {
                         sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
                                                            ascending: true)])
                     { (user: User) in
-                        VStack(alignment: .leading) {
-                            Text(user.wrappedName)
-                                .font(.headline)
-                            Text(user.wrappedCompany)
+                        NavigationLink(destination: Text("\(user.wrappedName)")) {
+                            VStack(alignment: .leading) {
+                                Text(user.wrappedName)
+                                    .font(.headline)
+                                Text(user.wrappedCompany)
+                            }
                         }
                     }
                 }
