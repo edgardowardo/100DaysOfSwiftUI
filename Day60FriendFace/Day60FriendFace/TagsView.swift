@@ -9,13 +9,31 @@
 import SwiftUI
 
 struct TagsView: View {
+
+    var tagsPerRow = 3
+    let tags: [String]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            ForEach(tags, id: \.self) {
+                Text($0)
+                    .padding(5)
+                    .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
+            }
+        }
     }
 }
 
 struct TagsView_Previews: PreviewProvider {
     static var previews: some View {
-        TagsView()
+        TagsView(tags: [
+            "cillum",
+            "consequat",
+            "deserunt",
+            "nostrud",
+            "eiusmod",
+            "minim",
+            "tempor"
+        ])
     }
 }

@@ -30,13 +30,7 @@ struct UserDetailView: View {
                     Text(self.user.wrappedAbout)
                         .layoutPriority(1)
                     
-                    HStack {
-                        ForEach(self.user.tagArray, id: \.self) { tag in
-                            Text(tag.wrappedTitle)
-                                .padding(5)
-                                .overlay(Capsule().stroke(Color.primary, lineWidth: 1))
-                        }
-                    }
+                    TagsView(tags: self.user.tagArray.map { $0.wrappedTitle })
                     
                     Spacer()
                 }
