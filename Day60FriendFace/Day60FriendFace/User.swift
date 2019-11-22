@@ -40,10 +40,11 @@ private extension String {
 }
 
 extension UserJSON.FriendJSON {
-    func friend(for context: NSManagedObjectContext) -> Friend {
+    func friend(for context: NSManagedObjectContext, in relatedUserId: String) -> Friend {
         let friend = Friend(context: context)
         friend.id = id
         friend.name = name
+        friend.relatedUserId = relatedUserId
         return friend
     }
 }
@@ -65,7 +66,7 @@ extension UserJSON {
         user.registered = dateFormatter.date(from: registered)
         
         user.tag = NSSet(array: tags.map { $0.tag(for: context, in: id) })
-        user.friend = NSSet(array: friends.map { $0.friend(for: context) })
+        user.friend = NSSet(array: friends.map { $0.friend(for: context, in: id) })
         return user
     }
 }
