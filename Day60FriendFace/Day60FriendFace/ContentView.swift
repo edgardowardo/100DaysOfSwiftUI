@@ -54,7 +54,7 @@ struct ContentView: View {
                     { (user: User) in
                         NavigationLink(destination: UserDetailView(user: user)) {
                             HStack {
-                                InitialsView(name: user.wrappedName)
+                                InitialsView(name: user.wrappedName, isActive: user.isActive)
                                     .frame(width: 40, height: 40)
                                 VStack(alignment: .leading) {
                                     Text(user.wrappedName)

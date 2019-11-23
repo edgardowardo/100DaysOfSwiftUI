@@ -11,6 +11,7 @@ import SwiftUI
 struct InitialsView: View {
     
     let name: String
+    let isActive: Bool
     
     var initials: String {
         let names = name.components(separatedBy: " ")
@@ -22,7 +23,7 @@ struct InitialsView: View {
             ZStack {
                 Circle()
                     .shadow(radius: 20)
-                    .foregroundColor(.gray)
+                    .foregroundColor( self.isActive ? .green : .gray)
                 Text(self.initials)
                     .font(.system(size: geo.size.height * 0.5))
                     .foregroundColor(.white)
@@ -32,7 +33,7 @@ struct InitialsView: View {
 }
 struct InitialsView_Previews: PreviewProvider {
     static var previews: some View {
-        InitialsView(name: "John Appleseed")
+        InitialsView(name: "John Appleseed", isActive: true)
             .frame(width: 300, height: 300)
     }
 }

@@ -17,7 +17,7 @@ struct UserDetailView: View {
         GeometryReader { geo in
             ScrollView(.vertical) {
                 VStack(spacing: 20) {
-                    InitialsView(name: self.user.wrappedName)
+                    InitialsView(name: self.user.wrappedName, isActive: self.user.isActive)
                         .frame(width: geo.size.width * 0.5, height: geo.size.width * 0.5)
                     VStack {
                         Text("\(self.user.wrappedName)")
@@ -39,7 +39,7 @@ struct UserDetailView: View {
                             ForEach(self.user.friendArray, id: \.self) { item in
                                 NavigationLink(destination: UserDetailView(user: item.friend!)) {
                                     HStack {
-                                        InitialsView(name: item.wrappedName)
+                                        InitialsView(name: item.wrappedName, isActive: item.friend?.isActive ?? false)
                                             .frame(width: 40, height: 40)
                                         VStack(alignment: .leading) {
                                             Text(item.wrappedName)
