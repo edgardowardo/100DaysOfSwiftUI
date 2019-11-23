@@ -12,6 +12,7 @@ struct ContentView: View {
         
     @Environment(\.managedObjectContext) var moc
 
+    @State var showLoading = false
     @State var showFilters = false
     @State var filterValue = ""
     let filters = NSPredicate.Operator.allCases
@@ -20,59 +21,61 @@ struct ContentView: View {
     @State var indexOfActiveFilter = 0
 
     var body: some View {
-        NavigationView {
-            Form {
-                if showFilters {
-                    Section(header: Text("Filters")) {
-                        
-                        Picker("Active filter", selection: $indexOfActiveFilter) {
-                            ForEach(0..<activeFilters.count) {
-                                Text("\(self.activeFilters[$0].displayedString)")
+        LoadingView(isShowing: $showLoading) {
+            NavigationView {
+                Form {
+                    if self.showFilters {
+                        Section(header: Text("Filters")) {
+                            
+                            Picker("Active filter", selection: self.$indexOfActiveFilter) {
+                                ForEach(0..<self.activeFilters.count) {
+                                    Text("\(self.activeFilters[$0].displayedString)")
+                                }
                             }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        
-                        Picker("Filter by", selection: $indexOfFilter) {
-                            ForEach(0..<filters.count) {
-                                Text("\(self.filters[$0].displayedString)")
+                            .pickerStyle(SegmentedPickerStyle())
+                            
+                            Picker("Filter by", selection: self.$indexOfFilter) {
+                                ForEach(0..<self.filters.count) {
+                                    Text("\(self.filters[$0].displayedString)")
+                                }
                             }
+                            .pickerStyle(SegmentedPickerStyle())
+                            
+                            TextField("Enter name to filter", text: self.$filterValue)
                         }
-                        .pickerStyle(SegmentedPickerStyle())
-                        
-                        TextField("Enter name to filter", text: $filterValue)
                     }
-                }
-                Section {
-                    FilteredListView(
-                        filterKey: "name",
-                        filterValue: filterValue,
-                        filterOperator: filters[indexOfFilter],
-                        flagKey: "isActive",
-                        flagOperator: activeFilters[indexOfActiveFilter],
-                        sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
-                                                           ascending: true)])
-                    { (user: User) in
-                        NavigationLink(destination: UserDetailView(user: user)) {
-                            HStack {
-                                InitialsView(name: user.wrappedName, isActive: user.isActive)
-                                    .frame(width: 40, height: 40)
-                                VStack(alignment: .leading) {
-                                    Text(user.wrappedName)
-                                        .font(.headline)
-                                    Text(user.wrappedCompany)
+                    Section {
+                        FilteredListView(
+                            filterKey: "name",
+                            filterValue: self.filterValue,
+                            filterOperator: self.filters[self.indexOfFilter],
+                            flagKey: "isActive",
+                            flagOperator: self.activeFilters[self.indexOfActiveFilter],
+                            sortDescriptors: [NSSortDescriptor(keyPath: \User.name,
+                                                               ascending: true)])
+                        { (user: User) in
+                            NavigationLink(destination: UserDetailView(user: user)) {
+                                HStack {
+                                    InitialsView(name: user.wrappedName, isActive: user.isActive)
+                                        .frame(width: 40, height: 40)
+                                    VStack(alignment: .leading) {
+                                        Text(user.wrappedName)
+                                            .font(.headline)
+                                        Text(user.wrappedCompany)
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                .onAppear(perform: self.loadData)
+                .navigationBarTitle("Friends")
+                .navigationBarItems(trailing: Button(action: {
+                    self.showFilters.toggle()
+                }) {
+                    Image(systemName: "line.horizontal.3.decrease.circle\(self.showFilters ? ".fill" : "")")
+                })
             }
-            .onAppear(perform: loadData)
-            .navigationBarTitle("Friendly Faces")
-            .navigationBarItems(trailing: Button(action: {
-                self.showFilters.toggle()
-            }) {
-                Image(systemName: "line.horizontal.3.decrease.circle\(self.showFilters ? ".fill" : "")")
-            })
         }
     }
 }
@@ -91,6 +94,7 @@ extension ContentView {
         }
 
         let request = URLRequest(url: url)
+        showLoading = true
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -107,6 +111,7 @@ extension ContentView {
                         try? self.moc.save()
                         
                         UserDefaults.standard.set("loaded", forKey: loadKey)
+                        self.showLoading = false
                     }
                     return
                 }
