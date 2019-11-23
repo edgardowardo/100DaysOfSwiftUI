@@ -53,10 +53,14 @@ struct ContentView: View {
                                                            ascending: true)])
                     { (user: User) in
                         NavigationLink(destination: UserDetailView(user: user)) {
-                            VStack(alignment: .leading) {
-                                Text(user.wrappedName)
-                                    .font(.headline)
-                                Text(user.wrappedCompany)
+                            HStack {
+                                InitialsView(name: user.wrappedName)
+                                    .frame(width: 40, height: 40)
+                                VStack(alignment: .leading) {
+                                    Text(user.wrappedName)
+                                        .font(.headline)
+                                    Text(user.wrappedCompany)
+                                }
                             }
                         }
                     }
@@ -92,7 +96,14 @@ extension ContentView {
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode([UserJSON].self, from: data) {
                     DispatchQueue.main.async {
-                        _ = decodedResponse.map{ $0.user(for: self.moc) }
+                        // map the users
+                        let users = decodedResponse.map{ $0.user(for: self.moc) }
+                        // assign the related friend's user that's just been created above
+                        for user in users {
+                            for friend in user.friendArray {
+                                friend.friend = users.first { $0.wrappedId == friend.wrappedId }
+                            }
+                        }
                         try? self.moc.save()
                         
                         UserDefaults.standard.set("loaded", forKey: loadKey)

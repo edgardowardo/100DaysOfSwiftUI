@@ -26,27 +26,34 @@ struct UserDetailView: View {
                         Text(self.user.wrappedAddress)
                     }
                     .font(.caption)
-                    
+
                     Text(self.user.wrappedAbout)
                         .layoutPriority(1)
-                    
+
                     TagsView(tags: self.user.tagArray.map { $0.wrappedTitle })
 
                     HStack {
                         VStack(alignment: .leading) {
                             Text("\(self.user.friendArray.count) friends")
-                            
+
                             ForEach(self.user.friendArray, id: \.self) { item in
-                                HStack {
-                                    InitialsView(name: item.wrappedName)
-                                        .frame(width: 40, height: 40)
-                                    Text(item.wrappedName)
+                                NavigationLink(destination: UserDetailView(user: item.friend!)) {
+                                    HStack {
+                                        InitialsView(name: item.wrappedName)
+                                            .frame(width: 40, height: 40)
+                                        VStack(alignment: .leading) {
+                                            Text(item.wrappedName)
+                                                .font(.headline)
+                                            Text(item.friend?.wrappedCompany ?? "Unknown")
+                                        }
+                                    }
                                 }
+                                .buttonStyle(PlainButtonStyle())
                             }
                         }
-                        
+
                         Spacer()
-                    }                    
+                    }
                 }
                 .padding()
             }
