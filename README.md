@@ -14,5 +14,6 @@ SwiftUI exercises, notes and projects facilitated by @twostraws #100DaysOfSwiftU
 ![Cupcake(URLSession)](images/cupcake.gif)
 ![Bookworm](images/bookworm.gif)
 ![CoreData Filters](images/predicateFilters.gif)
+![Friends app and CoreData Challenge](images/friendsCoreData.gif)
 
 
