@@ -20,6 +20,7 @@ struct ContentView: View {
                     NavigationLink("Image filter (none)", destination: ImageFiltersSampleView(filter: .none))
                     NavigationLink("Image filter (sepia)", destination: ImageFiltersSampleView(filter: .sepia))
                     NavigationLink("Image filter (pixelate)", destination: ImageFiltersSampleView(filter: .pixelate))
+                    NavigationLink("Image filter (crystalize)", destination: ImageFiltersSampleView(filter: .crystalize))
                 }
             }
             .navigationBarTitle("> 62")

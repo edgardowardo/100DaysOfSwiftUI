@@ -31,6 +31,7 @@ struct ImageFiltersSampleView: View {
         case none
         case sepia
         case pixelate
+        case crystalize
     }
     
     func currentFilter(_ beginImage: CIImage?) -> CIFilter {
@@ -44,6 +45,11 @@ struct ImageFiltersSampleView: View {
             let currentFilter = CIFilter.pixellate()
             currentFilter.inputImage = beginImage
             currentFilter.scale = 10
+            return currentFilter
+        case .crystalize:
+            let currentFilter = CIFilter.crystallize()
+            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            currentFilter.radius = 5
             return currentFilter
         }
     }
