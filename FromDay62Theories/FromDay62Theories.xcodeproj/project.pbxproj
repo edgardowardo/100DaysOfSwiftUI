@@ -19,6 +19,7 @@
 		77447D4C238C1FF20032D3F2 /* CustomBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D4B238C1FF20032D3F2 /* CustomBindingView.swift */; };
 		77447D4E238C284F0032D3F2 /* ActionSheetSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D4D238C284F0032D3F2 /* ActionSheetSampleView.swift */; };
 		77447D52238C296E0032D3F2 /* ImageFiltersSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D51238C296E0032D3F2 /* ImageFiltersSampleView.swift */; };
+		77447D54238C32B60032D3F2 /* ImagePickerSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D53238C32B60032D3F2 /* ImagePickerSampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		77447D4B238C1FF20032D3F2 /* CustomBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBindingView.swift; sourceTree = "<group>"; };
 		77447D4D238C284F0032D3F2 /* ActionSheetSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSampleView.swift; sourceTree = "<group>"; };
 		77447D51238C296E0032D3F2 /* ImageFiltersSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFiltersSampleView.swift; sourceTree = "<group>"; };
+		77447D53238C32B60032D3F2 /* ImagePickerSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerSampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				77447D51238C296E0032D3F2 /* ImageFiltersSampleView.swift */,
+				77447D53238C32B60032D3F2 /* ImagePickerSampleView.swift */,
 			);
 			path = Day63;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				77447D52238C296E0032D3F2 /* ImageFiltersSampleView.swift in Sources */,
 				77447D18238C1E240032D3F2 /* AppDelegate.swift in Sources */,
 				77447D4E238C284F0032D3F2 /* ActionSheetSampleView.swift in Sources */,
+				77447D54238C32B60032D3F2 /* ImagePickerSampleView.swift in Sources */,
 				77447D1D238C1E240032D3F2 /* FromDay62Theories.xcdatamodeld in Sources */,
 				77447D1F238C1E240032D3F2 /* ContentView.swift in Sources */,
 				77447D1A238C1E240032D3F2 /* SceneDelegate.swift in Sources */,
