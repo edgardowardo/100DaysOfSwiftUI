@@ -14,6 +14,7 @@ struct ContentView: View {
             Form {
                 Section(header: Text("Day 62")) {
                     NavigationLink("Custom binding", destination: CustomBindingView())
+                    NavigationLink("Action sheet", destination: ActionSheetSampleView())
                 }
             }
             .navigationBarTitle("> 62")

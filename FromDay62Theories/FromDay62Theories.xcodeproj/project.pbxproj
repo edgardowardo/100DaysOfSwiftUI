@@ -17,6 +17,7 @@
 		77447D32238C1E260032D3F2 /* FromDay62TheoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D31238C1E260032D3F2 /* FromDay62TheoriesTests.swift */; };
 		77447D3D238C1E260032D3F2 /* FromDay62TheoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D3C238C1E260032D3F2 /* FromDay62TheoriesUITests.swift */; };
 		77447D4C238C1FF20032D3F2 /* CustomBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D4B238C1FF20032D3F2 /* CustomBindingView.swift */; };
+		77447D4E238C284F0032D3F2 /* ActionSheetSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D4D238C284F0032D3F2 /* ActionSheetSampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		77447D3C238C1E260032D3F2 /* FromDay62TheoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromDay62TheoriesUITests.swift; sourceTree = "<group>"; };
 		77447D3E238C1E260032D3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77447D4B238C1FF20032D3F2 /* CustomBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBindingView.swift; sourceTree = "<group>"; };
+		77447D4D238C284F0032D3F2 /* ActionSheetSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				77447D4B238C1FF20032D3F2 /* CustomBindingView.swift */,
+				77447D4D238C284F0032D3F2 /* ActionSheetSampleView.swift */,
 			);
 			path = Day62;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			files = (
 				77447D4C238C1FF20032D3F2 /* CustomBindingView.swift in Sources */,
 				77447D18238C1E240032D3F2 /* AppDelegate.swift in Sources */,
+				77447D4E238C284F0032D3F2 /* ActionSheetSampleView.swift in Sources */,
 				77447D1D238C1E240032D3F2 /* FromDay62Theories.xcdatamodeld in Sources */,
 				77447D1F238C1E240032D3F2 /* ContentView.swift in Sources */,
 				77447D1A238C1E240032D3F2 /* SceneDelegate.swift in Sources */,
