@@ -16,6 +16,9 @@ struct ContentView: View {
                     NavigationLink("Custom binding", destination: CustomBindingView())
                     NavigationLink("Action sheet", destination: ActionSheetSampleView())
                 }
+                Section(header: Text("Day 63")) {
+                    NavigationLink("Image filter", destination: ImageFiltersSampleView())
+                }
             }
             .navigationBarTitle("> 62")
         }
