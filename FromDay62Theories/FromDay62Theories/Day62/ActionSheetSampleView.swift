@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ActionSheetSampleView: View {
     @State private var showingActionSheet = false
-    @State private var backgroundColor = Color.white
+    @State private var backgroundColor = Color.gray
     
     var body: some View {
         Text("Tap me")
