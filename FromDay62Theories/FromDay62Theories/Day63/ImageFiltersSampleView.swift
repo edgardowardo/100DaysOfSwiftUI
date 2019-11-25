@@ -10,9 +10,12 @@ import SwiftUI
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
+
+
 struct ImageFiltersSampleView: View {
-        
+            
     @State private var image: Image?
+    @State var filter: Filter
     
     var body: some View {
         VStack {
@@ -21,20 +24,38 @@ struct ImageFiltersSampleView: View {
                 .scaledToFit()
         }
         .onAppear(perform: loadImage)
+        .navigationBarTitle("Filter \(filter.rawValue)")
+    }
+    
+    enum Filter: String {
+        case none
+        case sepia
+        case pixelate
+    }
+    
+    func currentFilter(_ beginImage: CIImage?) -> CIFilter {
+        switch filter {
+        case .sepia, .none:
+            let currentFilter = CIFilter.sepiaTone()
+            currentFilter.inputImage = beginImage
+            currentFilter.intensity = (filter == .none) ? 0 : 1
+            return currentFilter
+        case .pixelate:
+            let currentFilter = CIFilter.pixellate()
+            currentFilter.inputImage = beginImage
+            currentFilter.scale = 10
+            return currentFilter
+        }
     }
 
     func loadImage() {
-        guard let inputImage = UIImage(named: "Technology")
+        guard let inputImage = UIImage(named: "venus")
             else { return }
         let beginImage = CIImage(image: inputImage)
         let context = CIContext()
-        let currentFilter = CIFilter.sepiaTone()
-        
-        currentFilter.inputImage = beginImage
-        currentFilter.intensity = 1
         
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter.outputImage else { return }
+        guard let outputImage = currentFilter(beginImage).outputImage else { return }
 
         // attempt to get a CGImage from our CIImage
         if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
@@ -49,6 +70,6 @@ struct ImageFiltersSampleView: View {
 
 struct ImageFiltersSampleView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageFiltersSampleView()
+        ImageFiltersSampleView(filter: .sepia)
     }
 }
