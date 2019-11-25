@@ -32,9 +32,10 @@ struct ImageFiltersSampleView: View {
         case sepia
         case pixelate
         case crystalize
+        case twirl
     }
     
-    func currentFilter(_ beginImage: CIImage?) -> CIFilter {
+    func currentFilter(_ beginImage: CIImage?, inputImage: UIImage) -> CIFilter {
         switch filter {
         case .sepia, .none:
             let currentFilter = CIFilter.sepiaTone()
@@ -51,6 +52,12 @@ struct ImageFiltersSampleView: View {
             currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
             currentFilter.radius = 5
             return currentFilter
+        case .twirl:
+            let currentFilter = CIFilter(name: "CITwirlDistortion")!
+            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            currentFilter.setValue(70, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(CIVector(x: inputImage.size.width / 2, y: inputImage.size.height / 2), forKey: kCIInputCenterKey)
+            return currentFilter
         }
     }
 
@@ -61,7 +68,7 @@ struct ImageFiltersSampleView: View {
         let context = CIContext()
         
         // get a CIImage from our filter or exit if that fails
-        guard let outputImage = currentFilter(beginImage).outputImage else { return }
+        guard let outputImage = currentFilter(beginImage, inputImage: inputImage).outputImage else { return }
 
         // attempt to get a CGImage from our CIImage
         if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
