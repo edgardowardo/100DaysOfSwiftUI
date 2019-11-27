@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section(header: Text("Day 64")) {
-                    NavigationLink("Coordinator explained", destination: CoordinatorExplainedView())
+                    NavigationLink("Coordinator + Image Saver", destination: CoordinatorExplainedView())
                 }
 
                 Section(header: Text("Day 63")) {
