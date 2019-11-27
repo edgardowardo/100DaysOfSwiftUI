@@ -12,6 +12,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Day 65")) {
+                    NavigationLink("Image Filter Sepia", destination: ImageFilterSepiaView())
+                }
+                
                 Section(header: Text("Day 64")) {
                     NavigationLink("Coordinator + Image Saver", destination: CoordinatorExplainedView())
                 }

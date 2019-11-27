@@ -21,6 +21,7 @@
 		77447D52238C296E0032D3F2 /* ImageFiltersSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D51238C296E0032D3F2 /* ImageFiltersSampleView.swift */; };
 		77447D54238C32B60032D3F2 /* ImagePickerSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D53238C32B60032D3F2 /* ImagePickerSampleView.swift */; };
 		77447D6F238E95AF0032D3F2 /* CoordinatorExplainedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D6E238E95AF0032D3F2 /* CoordinatorExplainedView.swift */; };
+		77447D78238EA0E50032D3F2 /* ImageFilterSepiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77447D77238EA0E50032D3F2 /* ImageFilterSepiaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		77447D51238C296E0032D3F2 /* ImageFiltersSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFiltersSampleView.swift; sourceTree = "<group>"; };
 		77447D53238C32B60032D3F2 /* ImagePickerSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerSampleView.swift; sourceTree = "<group>"; };
 		77447D6E238E95AF0032D3F2 /* CoordinatorExplainedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorExplainedView.swift; sourceTree = "<group>"; };
+		77447D77238EA0E50032D3F2 /* ImageFilterSepiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterSepiaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		77447D16238C1E240032D3F2 /* FromDay62Theories */ = {
 			isa = PBXGroup;
 			children = (
+				77447D76238EA0CC0032D3F2 /* Day65 */,
 				77447D50238C293D0032D3F2 /* Day64 */,
 				77447D4F238C29320032D3F2 /* Day63 */,
 				77447D4A238C1FD40032D3F2 /* Day62 */,
@@ -176,6 +179,14 @@
 				77447D6E238E95AF0032D3F2 /* CoordinatorExplainedView.swift */,
 			);
 			path = Day64;
+			sourceTree = "<group>";
+		};
+		77447D76238EA0CC0032D3F2 /* Day65 */ = {
+			isa = PBXGroup;
+			children = (
+				77447D77238EA0E50032D3F2 /* ImageFilterSepiaView.swift */,
+			);
+			path = Day65;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +325,7 @@
 				77447D18238C1E240032D3F2 /* AppDelegate.swift in Sources */,
 				77447D6F238E95AF0032D3F2 /* CoordinatorExplainedView.swift in Sources */,
 				77447D4E238C284F0032D3F2 /* ActionSheetSampleView.swift in Sources */,
+				77447D78238EA0E50032D3F2 /* ImageFilterSepiaView.swift in Sources */,
 				77447D54238C32B60032D3F2 /* ImagePickerSampleView.swift in Sources */,
 				77447D1D238C1E240032D3F2 /* FromDay62Theories.xcdatamodeld in Sources */,
 				77447D1F238C1E240032D3F2 /* ContentView.swift in Sources */,
