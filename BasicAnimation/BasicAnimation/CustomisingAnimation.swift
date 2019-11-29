@@ -9,30 +9,38 @@
 import SwiftUI
 
 struct CustomisingAnimation: View {
-    
+
+    private let animationEnd = CGFloat(2.5)
     @State private var animationAmount: CGFloat = 1
 
     var body: some View {
-        Button("Tap Me") {
-            // self.animationAmount += 1
-        }
+        Text("5")
+            .font(.largeTitle)
         .padding(40)
         .background(Color.red)
         .foregroundColor(.white)
         .clipShape(Circle())
         .overlay(
             Circle()
-                .stroke(Color.red)
+                .stroke(lineWidth: animationEnd - animationAmount )
+                .foregroundColor(.red)
                 .scaleEffect(animationAmount)
-                .opacity(Double(2 - animationAmount))
+                .opacity(Double(animationEnd - animationAmount))
                 .animation(
                     Animation.easeOut(duration: 1)
                         .repeatForever(autoreverses: false)
                 )
         )
         .onAppear {
-            self.animationAmount = 2
+            self.animationAmount = self.animationEnd
         }
     .navigationBarTitle("Pulsar")
+    }
+}
+
+
+struct CustomisingAnimation_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomisingAnimation()
     }
 }
