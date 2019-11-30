@@ -42,11 +42,11 @@ struct RingSpinner : View {
             }
         }
         .aspectRatio(1, contentMode: .fit)
-            .padding(20)
-            .onAppear() {
-                withAnimation(self.animation) {
-                    self.pct = 1.0
-                }
+        .padding(20)
+        .onAppear() {
+            withAnimation(self.animation) {
+                self.pct = 1.0
+            }
         }
     }
 
